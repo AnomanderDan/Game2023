@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://code/New_Enemy.gd" type="Script" id=1]
+[ext_resource path="res://code/Enemy.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.5
@@ -46,9 +46,3 @@ avoidance_enabled = true
 wait_time = 6.0
 one_shot = true
 autostart = true
-
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
-[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
-[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

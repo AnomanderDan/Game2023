@@ -62,19 +62,3 @@ func run(delta):
 	move_direction = move_direction.normalized()
 	
 	vel += move_direction * speed * delta
-
-
-func _on_Interaction_area_entered(area):
-	if area.name == "InteractArea":
-		prompt.text = "E" + "|" + area.get_parent().name
-	
-	elif area.name == "POI":
-		prompt.text = area.get_parent().name
-
-
-func _on_Interaction_area_exited(area):
-	if area.name == "InteractArea":
-		prompt.text = ""
-	
-	elif area.name == "POI":
-		prompt.text = ""

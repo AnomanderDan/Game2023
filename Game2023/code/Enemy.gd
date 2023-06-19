@@ -57,22 +57,22 @@ func _process(delta):
 		var wtransform = self.global_transform.looking_at(Vector3(xlocation, global_pos.y, zlocation), Vector3.UP)
 		var wrotation = Quat(global_transform.basis).slerp(Quat(wtransform.basis), rot_speed)
 		self.global_transform = Transform(Basis(wrotation), global_pos)
-		#if start_move == true:
-			#var velocity = global_transform.basis.z.normalized() * idle_speed * delta
-			#move_and_collide(velocity)
+		if start_move == true:
+			var velocity = global_transform.basis.z.normalized() * idle_speed * delta
+			move_and_collide(velocity)
 	else:
 		agent.set_target_location(checkpoints[target_index])
 		#move to player
 		var next = agent.get_next_location()
 		var velocity = (next - transform.origin).normalized() * speed * delta
-		move_and_collide(velocity)
+		move_and_collide(-velocity)
 		print("working")
 		#enemy look at player when they escape
-		#var global_pos = self.global_transform.origin
-		#var target_pos = target.global_transform.origin
-		#var wtransform = self.global_transform.looking_at(Vector3(target_pos.x, global_pos.y, target_pos.z), Vector3.UP)
-		#var wrotation = Quat(global_transform.basis).slerp(Quat(wtransform.basis), rot_speed)
-		#self.global_transform = Transform(Basis(wrotation), global_pos)
+		var global_pos = self.global_transform.origin
+		var target_pos = target.global_transform.origin
+		var wtransform = self.global_transform.looking_at(Vector3(target_pos.x, global_pos.y, target_pos.z), Vector3.UP)
+		var wrotation = Quat(global_transform.basis).slerp(Quat(wtransform.basis), rot_speed)
+		self.global_transform = Transform(Basis(wrotation), global_pos)
 	
 	if not is_on_floor():
 		move_and_collide(-global_transform.basis.y.normalized() * gravity * delta)

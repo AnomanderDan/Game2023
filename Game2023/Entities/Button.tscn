@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interactible.gd" type="Script" id=1]
 [ext_resource path="res://Entities/InteractArea.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
 
 [node name="Button" type="StaticBody"]
 transform = Transform( 0.504403, 0, 0, 0, 0.0480133, 0, 0, 0, 0.504403, 0, 0, 0 )
@@ -19,5 +21,9 @@ shape = SubResource( 2 )
 
 [node name="InteractArea" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.9792, 0, 0, 0, 4.25109, 0, 0, 0, 1.67028, 0, 0, 0 )
+
+[node name="CollisionShape" parent="InteractArea" index="0"]
+transform = Transform( 1, 0, 0, 0, 8.47355, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 3 )
 
 [editable path="InteractArea"]
