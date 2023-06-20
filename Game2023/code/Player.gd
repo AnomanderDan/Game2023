@@ -10,7 +10,6 @@ var vel = Vector3()
 onready var camera = $CameraRig/Camera
 onready var camera_rig = $CameraRig
 onready var cursor = $Cursor
-onready var prompt = $Prompt
 
 
 func _ready():
