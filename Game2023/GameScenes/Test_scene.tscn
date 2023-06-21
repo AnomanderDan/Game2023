@@ -1,8 +1,16 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameScenes/Door.gd" type="Script" id=3]
+[ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Environment" id=15]
+background_mode = 1
+background_color = Color( 0.0745098, 0.0784314, 0.141176, 1 )
+ambient_light_color = Color( 0.129412, 0.12549, 0.12549, 1 )
+ambient_light_energy = 1.43
+fog_enabled = true
 
 [sub_resource type="NavigationMesh" id=1]
 vertices = PoolVector3Array( 7.55454, 1.09019, -0.1792, 7.55454, 1.09019, -7.4292, 0.0545402, 1.09019, -7.4292, -7.44546, 1.09019, -0.1792, -7.44546, 1.09019, 7.3208, 0.0545402, 1.09019, 7.3208, 0.0545402, 1.09019, -7.4292, -7.44546, 1.09019, -7.4292, -7.44546, 1.09019, -0.1792, 0.0545402, 1.09019, 7.3208, 7.55454, 1.09019, 7.3208, 7.55454, 1.09019, -0.1792 )
@@ -121,6 +129,9 @@ start_node = "Close"
 
 [node name="Test_scene" type="Spatial"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 15 )
+
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 navmesh = SubResource( 1 )
 
@@ -171,4 +182,9 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 14 )
 
+[node name="UI" parent="." instance=ExtResource( 4 )]
+
+[connection signal="Power_changed" from="Player" to="UI/Battery" method="_on_Player_Power_changed"]
 [connection signal="interacted" from="Button" to="StaticBody" method="toggle_door"]
+
+[editable path="UI"]

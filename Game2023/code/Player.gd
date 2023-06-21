@@ -3,6 +3,7 @@ extends KinematicBody
 export var speed = 50
 export var friction = 0.875
 export var gravity = 80.0
+export var max_power = 100
 
 var move_direction = Vector3()
 var vel = Vector3()
@@ -10,6 +11,10 @@ var vel = Vector3()
 onready var camera = $CameraRig/Camera
 onready var camera_rig = $CameraRig
 onready var cursor = $Cursor
+onready var power = max_power setget _set_power
+onready var timer = $Timer
+
+signal Power_changed(power)
 
 
 func _ready():
@@ -61,3 +66,33 @@ func run(delta):
 	move_direction = move_direction.normalized()
 	
 	vel += move_direction * speed * delta
+
+
+func recover_power(amount):
+	_set_power(power + amount)
+
+func die():
+	get_tree().reload_current_scene()
+
+func _set_power(value):
+	var prev_power = power
+	print(power)
+	power = clamp(value, 0, max_power)
+	if power != prev_power:
+		emit_signal("Power_changed", power)
+		if power == 0:
+			$DeathTimer.start()
+			$AnimationPlayer.play("Battery_dead")
+
+func power_loss(amount):
+	_set_power(power - amount)
+
+
+func _on_Timer_timeout():
+	power_loss(2)
+	timer.start()
+
+
+func _on_DeathTimer_timeout():
+	die()
+	emit_signal("killed")
