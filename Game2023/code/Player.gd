@@ -89,7 +89,7 @@ func power_loss(amount):
 
 
 func _on_Timer_timeout():
-	power_loss(2)
+	power_loss(0)
 	timer.start()
 
 
