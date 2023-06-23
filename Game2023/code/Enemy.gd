@@ -10,6 +10,11 @@ var zlocation = rand_range(-360, 360)
 export var checkpoints = [Vector3(0, 0, 0)]
 var target_index = 0
 
+enum EnemyState {idle, attack, patrol}
+
+var enemy_state = EnemyState.idle
+
+
 #following player
 var attack = false
 
@@ -59,7 +64,7 @@ func _process(delta):
 		self.global_transform = Transform(Basis(wrotation), global_pos)
 		if start_move == true:
 			var velocity = global_transform.basis.z.normalized() * idle_speed * delta
-			move_and_collide(velocity)
+			#move_and_collide(velocity)
 	else:
 		agent.set_target_location(checkpoints[target_index])
 		#move to player
@@ -74,8 +79,8 @@ func _process(delta):
 		var wrotation = Quat(global_transform.basis).slerp(Quat(wtransform.basis), rot_speed)
 		self.global_transform = Transform(Basis(wrotation), global_pos)
 	
-	if not is_on_floor():
-		move_and_collide(-global_transform.basis.y.normalized() * gravity * delta)
+	#if not is_on_floor():
+	#	move_and_collide(-global_transform.basis.y.normalized() * gravity * delta)
 
 
 func _on_Area_body_exited(body):

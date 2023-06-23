@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MenuScenes/Pause.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=4]
@@ -76,6 +77,9 @@ material/0 = SubResource( 3 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.999999, 0.00136763, 0.000971985, -0.000882498, -0.0639767, 0.997951, 0.00142701, -0.99795, -0.0639754, 0.195926, 8.69769, -0.132091 )
 light_energy = 1.649
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79032, 1.9474, 4.28767 )
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 pause_mode = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameScenes/Door.gd" type="Script" id=3]
 [ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/GlowShroom.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=15]
 background_mode = 1
@@ -180,6 +181,9 @@ tree_root = SubResource( 13 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 14 )
+
+[node name="GlowShroom" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.363468, 0, 0, 0, 0.202642, 0, 0, 0, 0.407054, -1.87034, 0.613631, -5.59246 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 
