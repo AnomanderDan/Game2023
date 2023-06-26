@@ -1,14 +1,13 @@
-class_name Shroom
-extends StaticBody
+extends Spatial
 
 onready var animation = $AnimationPlayer
 
 func _ready():
 	animation.play("Start_Light")
 
-func _on_Area_area_entered(area):
-	if area.get_parent().has_method("recover_power"):
-		area.get_parent().recover_power(5)
+func _on_Area_body_entered(body):
+	if body.get_parent().has_method("recover_power"):
+		body.get_parent().recover_power(5)
 		animation.play("Light_Dim")
 		$Timer.start()
 		print("entered")
