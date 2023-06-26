@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Interactive",
 "language": "GDScript",
 "path": "res://code/Interactible.gd"
+}, {
+"base": "StaticBody",
+"class": "Shroom",
+"language": "GDScript",
+"path": "res://Entities/GlowShroom.gd"
 } ]
 _global_script_class_icons={
-"Interactive": ""
+"Interactive": "",
+"Shroom": ""
 }
 
 [application]

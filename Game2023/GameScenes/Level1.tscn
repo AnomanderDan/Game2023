@@ -31,9 +31,6 @@ environment = SubResource( 4 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86399, 2.18826, 0.531348 )
 
-[node name="Cursor" parent="Player" index="3"]
-material/0 = null
-
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 navmesh = SubResource( 5 )
 
