@@ -31,6 +31,9 @@ environment = SubResource( 4 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86399, 2.18826, 0.531348 )
 
+[node name="Cursor" parent="Player" index="3"]
+material/0 = null
+
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 navmesh = SubResource( 5 )
 
@@ -80,6 +83,7 @@ light_energy = 1.649
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79032, 1.9474, 4.28767 )
+script = null
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
