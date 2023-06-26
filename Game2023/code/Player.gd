@@ -76,7 +76,6 @@ func die():
 
 func _set_power(value):
 	var prev_power = power
-	print(power)
 	power = clamp(value, 0, max_power)
 	if power != prev_power:
 		emit_signal("Power_changed", power)
@@ -89,7 +88,7 @@ func power_loss(amount):
 
 
 func _on_Timer_timeout():
-	power_loss(0)
+	power_loss(3)
 	timer.start()
 
 

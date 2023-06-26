@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Entities/GlowShroom.gd" type="Script" id=1]
 
@@ -18,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 2.0, 0.3 ]
@@ -30,7 +30,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -46,7 +46,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.3, 2.0 ]
@@ -58,7 +58,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.5 ),
+"times": PoolRealArray( 1.4 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -93,7 +93,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "Start_Light"
-length = 0.001
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("OmniLight:light_energy")
 tracks/0/interp = 1
@@ -101,11 +101,45 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 2.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area/CollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Light_Dim"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Light_Up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Light_Dim/node = SubResource( 8 )
+states/Light_Dim/position = Vector2( 571, 80 )
+states/Light_Up/node = SubResource( 9 )
+states/Light_Up/position = Vector2( 571, 153 )
+transitions = [ "Light_Up", "Light_Dim", SubResource( 10 ), "Light_Dim", "Light_Up", SubResource( 11 ) ]
+start_node = "Light_Up"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [node name="GlowShroom" type="Spatial"]
 script = ExtResource( 1 )
@@ -132,12 +166,20 @@ anims/RESET = SubResource( 6 )
 anims/Start_Light = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 5.0
+one_shot = true
 
 [node name="OmniLight" type="OmniLight" parent="."]
 light_color = Color( 0.317647, 0.513726, 0.784314, 1 )
 light_energy = 2.0
 omni_range = 3.0
 
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 13 )
+
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

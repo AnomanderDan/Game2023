@@ -9,12 +9,8 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Power_Frame" type="TextureProgress" parent="."]
-margin_left = 5.96046e-08
 margin_top = 433.0
 margin_right = 1024.0
 margin_bottom = 1457.0
@@ -35,8 +31,5 @@ value = 100.0
 texture_under = ExtResource( 2 )
 texture_over = ExtResource( 3 )
 texture_progress = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="."]

@@ -1,17 +1,20 @@
 extends Spatial
 
-onready var animation = $AnimationPlayer
+var animation = null
 
 func _ready():
-	animation.play("Start_Light")
+	animation = $AnimationTree.get("parameters/playback")
 
-func _on_Area_body_entered(body):
-	if body.get_parent().has_method("recover_power"):
-		body.get_parent().recover_power(5)
-		animation.play("Light_Dim")
-		$Timer.start()
+func _on_Area_area_entered(area):
+	if area.get_parent().has_method("recover_power"):
 		print("entered")
+		area.get_parent().recover_power(20)
 
 
 func _on_Timer_timeout():
-	animation.play("Light_Up")
+	animation.travel("Light_Up")
+
+
+func _on_Area_area_exited(body):
+	animation.travel("Light_Dim")
+	$Timer.start()
