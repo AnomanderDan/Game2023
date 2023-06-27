@@ -365,6 +365,7 @@ environment = SubResource( 15 )
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 transform = Transform( 2.48961, 0, 0, 0, 1, 0, 0, 0, 2.31638, 0, 0, 0 )
 navmesh = SubResource( 1 )
+enabled = false
 
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance"]
 transform = Transform( 7.94546, 0, 0, 0, 0.409807, 0, 0, 0, 7.9292, 0, 0, 0 )
@@ -413,33 +414,33 @@ active = true
 parameters/playback = SubResource( 14 )
 
 [node name="GlowShroom" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23027, 0.409818, 3.9724 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23027, 0.799362, 3.9724 )
 
-[node name="AnimationTree" parent="GlowShroom" index="5"]
+[node name="AnimationTree" parent="GlowShroom" index="4"]
 parameters/playback = SubResource( 16 )
 
 [node name="GlowShroom2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23027, 0.409818, -5.55386 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23027, 0.740614, -5.55386 )
 
-[node name="AnimationPlayer" parent="GlowShroom2" index="2"]
+[node name="AnimationPlayer" parent="GlowShroom2" index="1"]
 anims/Light_Dim = SubResource( 17 )
 anims/Light_Up = SubResource( 18 )
 anims/RESET = SubResource( 19 )
 anims/Start_Light = SubResource( 20 )
 
-[node name="AnimationTree" parent="GlowShroom2" index="5"]
+[node name="AnimationTree" parent="GlowShroom2" index="4"]
 parameters/playback = SubResource( 21 )
 
 [node name="GlowShroom3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4619, 0.409818, -14.2144 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4619, 0.778008, -14.2144 )
 
-[node name="AnimationPlayer" parent="GlowShroom3" index="2"]
+[node name="AnimationPlayer" parent="GlowShroom3" index="1"]
 anims/Light_Dim = SubResource( 22 )
 anims/Light_Up = SubResource( 23 )
 anims/RESET = SubResource( 24 )
 anims/Start_Light = SubResource( 25 )
 
-[node name="AnimationTree" parent="GlowShroom3" index="5"]
+[node name="AnimationTree" parent="GlowShroom3" index="4"]
 parameters/playback = SubResource( 26 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
@@ -454,4 +455,5 @@ patrol_point = [ Vector3( 12.157, 0.41, 12.282 ) ]
 [editable path="GlowShroom"]
 [editable path="GlowShroom2"]
 [editable path="GlowShroom3"]
+[editable path="Enemy"]
 [editable path="UI"]
