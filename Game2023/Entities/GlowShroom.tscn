@@ -169,10 +169,10 @@ anims/Start_Light = SubResource( 7 )
 wait_time = 5.0
 one_shot = true
 
-[node name="OmniLight" type="OmniLight" parent="."]
+[node name="OmniLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.00619591, 0.999981, 0, -0.999981, -0.00619591, 0, 2.54284, 0 )
 light_color = Color( 0.317647, 0.513726, 0.784314, 1 )
 light_energy = 2.0
-omni_range = 3.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 12 )
