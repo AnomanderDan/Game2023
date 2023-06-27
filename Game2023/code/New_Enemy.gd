@@ -28,13 +28,8 @@ func _ready():
 func _physics_process(delta):
 	match state:
 		PATROL:
-			pass
 			find_player()
-			agent.set_target_location(patrol_point)
-			
-			var next = agent.get_next_location()
-			var velocity = (next - transform.origin).normalized() * speed * delta
-			move_and_slide(velocity)
+			agent.set_target_location(patrol_point[0])
 		
 		
 		ATTACK:
@@ -42,14 +37,17 @@ func _physics_process(delta):
 			if player != null:
 				
 				agent.set_target_location(target_location.transform.origin)
-				
-				var next = agent.get_next_location()
-				var velocity = (next - transform.origin).normalized() * speed * delta
-				move_and_slide(velocity)
+			
+			else:
+				state = pick_state([PATROL])
+
 		
 		
 		DIE:
 			queue_free()
+	var next = agent.get_next_location()
+	var velocity = (next - transform.origin).normalized() * speed * delta
+	move_and_slide(velocity)
 
 
 func find_player():

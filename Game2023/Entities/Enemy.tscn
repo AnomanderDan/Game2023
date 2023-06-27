@@ -39,6 +39,11 @@ autostart = true
 [node name="monster" parent="." instance=ExtResource( 2 )]
 transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.0131885, -0.780151, -0.0271304 )
 
+[node name="OmniLight" type="OmniLight" parent="."]
+light_indirect_energy = 0.5
+light_negative = true
+omni_range = 3.0
+
 [connection signal="body_entered" from="Aggro" to="Aggro" method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="Aggro" method="_on_Aggro_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
