@@ -95,3 +95,8 @@ func _on_Timer_timeout():
 func _on_DeathTimer_timeout():
 	die()
 	emit_signal("killed")
+
+
+func _on_Detection_area_entered(area):
+	if area.name == "Death":
+		die()

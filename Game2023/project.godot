@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://code/New_Enemy.gd"
+}, {
 "base": "StaticBody",
 "class": "Interactive",
 "language": "GDScript",
 "path": "res://code/Interactible.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "Interactive": ""
 }
 

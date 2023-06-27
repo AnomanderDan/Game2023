@@ -443,8 +443,8 @@ anims/Start_Light = SubResource( 25 )
 parameters/playback = SubResource( 26 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1569, 1.35643, -3.57099 )
-patrol_point = [ Vector3( 12.157, 0.41, 12.282 ) ]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.02641, 1.35643, -8.29457 )
+patrol_point = [ Vector3( 12.157, 1.356, 12.282 ), Vector3( 9.026, 1.356, -8.295 ) ]
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 

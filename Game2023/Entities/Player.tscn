@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://code/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/player(unanimated).tscn" type="PackedScene" id=2]
@@ -27,6 +27,12 @@ tracks/0/keys = {
 "values": [ 2.0, 0.0, 2.0, 0.0, 1.5, 1.0, 0.0 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "Concentrated_Light"
+
+[sub_resource type="Animation" id=8]
+resource_name = "Normal_Light"
+
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
@@ -43,6 +49,12 @@ tracks/0/keys = {
 }
 
 [sub_resource type="BoxShape" id=5]
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -101,13 +113,28 @@ wait_time = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Battery_dead = SubResource( 3 )
+anims/Concentrated_Light = SubResource( 7 )
+anims/Normal_Light = SubResource( 8 )
 anims/RESET = SubResource( 4 )
 
-[node name="Area" type="Area" parent="."]
+[node name="Detection" type="Area" parent="."]
 transform = Transform( 0.611809, 0, 0, 0, 1, 0, 0, 0, 0.578415, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Detection"]
 shape = SubResource( 5 )
+
+[node name="Fire" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Fire"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.66103, 0, 0, -2.99352 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 10 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="area_entered" from="Detection" to="." method="_on_Detection_area_entered"]
