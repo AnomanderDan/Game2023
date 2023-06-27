@@ -365,7 +365,6 @@ environment = SubResource( 15 )
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 transform = Transform( 2.48961, 0, 0, 0, 1, 0, 0, 0, 2.31638, 0, 0, 0 )
 navmesh = SubResource( 1 )
-enabled = false
 
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance"]
 transform = Transform( 7.94546, 0, 0, 0, 0.409807, 0, 0, 0, 7.9292, 0, 0, 0 )
