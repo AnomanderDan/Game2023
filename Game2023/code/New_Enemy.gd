@@ -10,7 +10,7 @@ onready var aggro = $Aggro
 export var patrol_point = []
 
 
-var speed = 100
+var speed = 150
 var min_speed = 50
 var state = null
 var rot_speed = 0.05

@@ -155,7 +155,7 @@ anims/RESET = SubResource( 6 )
 anims/Start_Light = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true
 
 [node name="OmniLight" type="SpotLight" parent="."]

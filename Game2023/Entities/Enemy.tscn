@@ -56,7 +56,4 @@ shape = SubResource( 5 )
 
 [connection signal="body_entered" from="Aggro" to="Aggro" method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="Aggro" method="_on_Aggro_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
-[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
-[connection signal="area_entered" from="Death" to="." method="_on_Death_area_entered"]
