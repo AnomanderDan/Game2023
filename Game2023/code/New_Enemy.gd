@@ -10,8 +10,8 @@ onready var aggro = $Aggro
 export var patrol_point = []
 var current_point = 0
 
-var speed = 300
-var min_speed = 50
+var speed = 200
+var min_speed = 100
 var state = null
 var rot_speed = 0.05
 
@@ -35,7 +35,7 @@ func _physics_process(delta):
 			find_player()
 			agent.set_target_location(patrol_point[current_point])
 			var next = agent.get_next_location()
-			var velocity = (next - transform.origin).normalized() * speed * delta
+			var velocity = (next - transform.origin).normalized() * min_speed * delta
 			move_and_slide(velocity)
 			var dir = (next - transform.origin).normalized()
 			dir.y = 0
