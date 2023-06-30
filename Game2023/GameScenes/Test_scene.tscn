@@ -1,9 +1,19 @@
+<<<<<<< HEAD
 [gd_scene load_steps=20 format=2]
+=======
+[gd_scene load_steps=34 format=2]
+>>>>>>> 01ff8f9 (concrete)
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameScenes/Door.gd" type="Script" id=3]
 [ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=4]
+<<<<<<< HEAD
+=======
+[ext_resource path="res://Entities/GlowShroom.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Concrete.material" type="Material" id=7]
+>>>>>>> 01ff8f9 (concrete)
 
 [sub_resource type="Environment" id=15]
 background_mode = 1
@@ -143,7 +153,11 @@ shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody"]
 mesh = SubResource( 3 )
+<<<<<<< HEAD
 material/0 = null
+=======
+material/0 = ExtResource( 7 )
+>>>>>>> 01ff8f9 (concrete)
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01125, 0 )
