@@ -43,11 +43,13 @@ autostart = true
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0131885, -0.780151, -0.0271304 )
 
 [node name="OmniLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.12581, 0 )
-light_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00580955, 3.91525, -0.561976 )
+light_color = Color( 0.831373, 0.831373, 0.831373, 1 )
 light_energy = 0.5
 light_indirect_energy = 0.5
 light_negative = true
+spot_range = 6.8597
+spot_angle = 40.7813
 
 [node name="Death" type="Area" parent="."]
 

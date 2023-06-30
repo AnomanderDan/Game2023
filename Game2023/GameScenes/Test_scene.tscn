@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=34 format=2]
+=======
+[gd_scene load_steps=35 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
@@ -6,7 +10,12 @@
 [ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/GlowShroom.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=6]
+<<<<<<< Updated upstream
 [ext_resource path="res://Sprites/Concrete.material" type="Material" id=7]
+=======
+[ext_resource path="res://Entities/light_pole.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Platform.tscn" type="PackedScene" id=8]
+>>>>>>> Stashed changes
 
 [sub_resource type="Environment" id=15]
 background_mode = 1
@@ -30,6 +39,7 @@ polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 5 ), PoolIntArray( 2, 
 
 [sub_resource type="Animation" id=6]
 resource_name = "Close"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape:disabled")
 tracks/0/interp = 1
@@ -57,6 +67,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "Open"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape:disabled")
 tracks/0/interp = 1
@@ -123,7 +134,7 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=13]
 states/Close/node = SubResource( 9 )
-states/Close/position = Vector2( 506, 43 )
+states/Close/position = Vector2( 506, 44 )
 states/Open/node = SubResource( 10 )
 states/Open/position = Vector2( 104, 44 )
 transitions = [ "Open", "Close", SubResource( 11 ), "Close", "Open", SubResource( 12 ) ]
@@ -390,8 +401,18 @@ shape = SubResource( 2 )
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
 mesh = SubResource( 3 )
 
+[node name="Platform" parent="." instance=ExtResource( 8 )]
+transform = Transform( 2, 0, 0, 0, 0.136, 0, 0, 0, 2, 6.28587, 0.215405, 20.3294 )
+
 [node name="Button" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07122, 0.9769, 4.52566 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49524, 0.708589, 18.1199 )
+
+[node name="light_pole" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57803, 0.409811, 10.2542 )
+on = true
+
+[node name="Button2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.81632, 0.9769, 4.52566 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34969, 1.43987, 0 )
@@ -452,7 +473,8 @@ patrol_point = [ Vector3( 12.157, 1.356, 12.282 ), Vector3( 9.026, 1.356, -8.295
 [node name="UI" parent="." instance=ExtResource( 4 )]
 
 [connection signal="Power_changed" from="Player" to="UI/Battery" method="_on_Player_Power_changed"]
-[connection signal="interacted" from="Button" to="StaticBody" method="toggle_door"]
+[connection signal="interacted" from="Button" to="Platform" method="toggle"]
+[connection signal="interacted" from="Button2" to="light_pole" method="toggle_light"]
 
 [editable path="GlowShroom"]
 [editable path="GlowShroom2"]

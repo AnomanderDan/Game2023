@@ -12,7 +12,7 @@ func _ready():
 func toggle_door(_body):
 	open = !open
 	
-	if open:
+	if open == true:
 		playback.travel("Open")
 	
 	else:

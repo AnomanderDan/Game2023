@@ -29,7 +29,7 @@ func _physics_process(delta):
 	
 	vel *= friction
 	vel.y -= gravity * delta
-	vel = move_and_slide(vel, Vector3.UP, true, 3)
+	vel = move_and_slide_with_snap(vel, Vector3.UP, Vector3.UP, true, 3)
 
 func camera_follows_player():
 	var player_pos = global_transform.origin
