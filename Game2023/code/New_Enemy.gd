@@ -8,17 +8,10 @@ onready var aggro = $Aggro
 
 
 export var patrol_point = []
-<<<<<<< Updated upstream
 var current_point = 0
 
 var speed = 200
 var min_speed = 100
-=======
-var target_index = 0
-
-var speed = 100
-var min_speed = 50
->>>>>>> Stashed changes
 var state = null
 var rot_speed = 0.05
 
@@ -49,20 +42,11 @@ func _physics_process(delta):
 			look_at(transform.origin + dir, Vector3.UP)
 			
 			
-<<<<<<< Updated upstream
 			if agent.is_target_reached():
 				current_point += 1
 				if current_point >= len(patrol_point):
 					current_point -= len(patrol_point)
 				agent.set_target_location(patrol_point[current_point])
-=======
-
-			agent.set_target_location(patrol_point[target_index])
-#			if agent.is_target_reached():
-#				state = pick_state([PATROL])
-#				patrol_point[target_index] + 1
-			
->>>>>>> Stashed changes
 		
 		
 		ATTACK:
