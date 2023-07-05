@@ -10,6 +10,7 @@ radius = 0.5
 [sub_resource type="BoxShape" id=4]
 
 [sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 1, 0.87401 )
 
 [node name="Enemy" type="KinematicBody"]
 script = ExtResource( 1 )

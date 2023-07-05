@@ -1,29 +1,32 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MenuScenes/Pause.tscn" type="PackedScene" id=3]
+[ext_resource path="res://basic_building.tscn" type="PackedScene" id=4]
+[ext_resource path="res://road_cone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Asphalt025A_4K-JPG/Asphalt.tres" type="Material" id=6]
+[ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://stairs.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Environment" id=4]
 background_mode = 1
 background_color = Color( 0.0823529, 0.0901961, 0.196078, 1 )
 background_energy = 0.21
 ambient_light_color = Color( 0.713726, 0.690196, 0.811765, 1 )
+ambient_light_energy = 0.1
 fog_enabled = true
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [sub_resource type="NavigationMesh" id=5]
-vertices = PoolVector3Array( -10.5295, 1, -10.3938, -10.0295, 1, -10.6438, -10.0295, 1, -11.3938, -16.5295, 1, -11.3938, -16.5295, 1, 11.6062, -10.7795, 1, 11.6062, -10.5295, 1, 0.8562, -16.5295, 1, 0.1062, -10.5295, 1, -10.3938, -16.5295, 1, -11.3938, -16.5295, 1, 0.1062, -10.5295, 1, 0.8562, -8.77949, 1.5, -1.1438, -4.52949, 1.5, -0.8938, -4.27949, 1.5, -2.6438, -8.77949, 1.5, -9.6438, -8.77949, 1.5, -1.1438, -4.27949, 1.5, -2.6438, -2.52949, 1.5, -9.6438, 3.97051, 1.5, -2.6438, 3.97051, 1.5, -9.6438, -2.52949, 1.5, -9.6438, -4.27949, 1.5, -2.6438, 4.47051, 1.5, -2.3938, 4.47051, 1.5, 0.8562, 9.72051, 1.5, 1.1062, 3.97051, 1.5, -9.6438, 3.97051, 1.5, -2.6438, 4.47051, 1.5, -2.3938, 4.47051, 1.5, -2.3938, 9.72051, 1.5, 1.1062, 9.72051, 1.5, -9.6438, 3.97051, 1.5, -9.6438, -3.52949, 3.25, -1.6438, -3.52949, 3.25, 1.6062, 3.47051, 3.25, 1.6062, 3.47051, 3.25, -1.6438, -3.27949, 1.5, -1.3938, -3.27949, 1.5, 1.3562, 3.22051, 1.5, 1.3562, 3.22051, 1.5, -1.3938, -4.52949, 1.5, 2.3562, -4.52949, 1.5, -0.8938, -8.77949, 1.5, -1.1438, -2.27949, 1.5, 8.6062, -2.27949, 1.5, 2.6062, -4.52949, 1.5, 2.3562, -4.52949, 1.5, 2.3562, -8.77949, 1.5, -1.1438, -8.77949, 1.5, 8.6062, -2.27949, 1.5, 8.6062, 9.72051, 1.5, 1.1062, 4.47051, 1.5, 0.8562, 4.22051, 1.5, 2.6062, 4.22051, 1.5, 2.6062, 2.22051, 1.5, 2.6062, 2.22051, 1.5, 8.6062, 9.72051, 1.5, 8.6062, 9.72051, 1.5, 1.1062, 4.22051, 1.5, 2.6062, 2.22051, 1.5, 8.6062, -2.27949, 1.5, 8.6062, 2.22051, 1.5, 8.6062, 2.22051, 1.5, 2.6062, -2.27949, 1.5, 2.6062, 13.7205, 1, 9.8562, 10.7205, 1, 9.8562, 10.4705, 1, 10.6062, 13.7205, 1, 16.6062, -8.77949, 1, 12.6062, -9.52949, 1, 12.8562, -9.52949, 1, 16.6062, 1.97051, 1, 16.6062, 0.72051, 1, 10.6062, 1.97051, 1, 16.6062, 13.7205, 1, 16.6062, 10.4705, 1, 10.6062, 0.72051, 1, 10.6062, 0.72051, 1, 10.6062, -8.77949, 1, 10.6062, -8.77949, 1, 12.6062 )
-polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 11, 10, 8 ), PoolIntArray( 8, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 28, 27, 26 ), PoolIntArray( 32, 31, 29 ), PoolIntArray( 29, 31, 30 ), PoolIntArray( 36, 35, 33 ), PoolIntArray( 33, 35, 34 ), PoolIntArray( 40, 39, 37 ), PoolIntArray( 37, 39, 38 ), PoolIntArray( 43, 42, 41 ), PoolIntArray( 46, 45, 44 ), PoolIntArray( 50, 49, 47 ), PoolIntArray( 47, 49, 48 ), PoolIntArray( 53, 52, 51 ), PoolIntArray( 56, 55, 54 ), PoolIntArray( 58, 57, 59 ), PoolIntArray( 59, 57, 60 ), PoolIntArray( 64, 63, 61 ), PoolIntArray( 61, 63, 62 ), PoolIntArray( 66, 65, 67 ), PoolIntArray( 67, 65, 68 ), PoolIntArray( 70, 69, 71 ), PoolIntArray( 71, 69, 73 ), PoolIntArray( 71, 73, 72 ), PoolIntArray( 77, 76, 74 ), PoolIntArray( 74, 76, 75 ), PoolIntArray( 80, 79, 78 ) ]
+vertices = PoolVector3Array( -2.3506, 18.2588, -31.8561, -2.3506, 18.2588, -27.8561, 8.8994, 18.2588, -27.8561, 8.8994, 18.2588, -31.8561, 11.6494, 18.2588, -31.8561, 11.6494, 18.2588, -27.6061, 22.8994, 18.2588, -27.6061, 22.8994, 18.2588, -31.8561, -3.1006, 1.25883, -26.6061, -3.3506, 1.25883, -27.8561, -13.3506, 1.25883, -27.8561, -23.1006, 1.25883, -18.8561, -23.1006, 1.25883, -9.60611, -13.3506, 1.25883, -27.8561, -23.1006, 1.25883, -27.8561, -23.1006, 1.25883, -18.8561, -23.1006, 1.25883, -0.60611, -23.1006, 1.25883, 8.64389, -12.6006, 1.25883, 8.64389, -23.1006, 1.25883, -9.60611, -23.1006, 1.25883, -0.60611, -12.6006, 1.25883, 8.64389, -1.8506, 1.25883, 8.64389, -1.6006, 1.25883, -26.6061, -3.1006, 1.25883, -26.6061, 10.8994, 1.25883, -26.6061, 10.6494, 1.25883, -27.8561, 9.8994, 1.25883, -27.8561, 9.6494, 1.25883, -26.6061, 4.3994, 1.25883, 8.64389, 10.6494, 1.25883, 8.64389, 23.1494, 1.25883, -0.35611, 16.8994, 1.25883, -26.3561, 10.8994, 1.25883, -26.6061, 9.6494, 1.25883, -26.6061, 23.1494, 1.25883, -9.10611, 23.1494, 1.25883, -17.8561, 23.1494, 1.25883, -17.8561, 23.1494, 1.25883, -26.6061, 16.8994, 1.25883, -26.3561, 16.8994, 1.25883, 8.64389, 23.1494, 1.25883, 8.64389, 23.1494, 1.25883, -0.35611, 10.6494, 1.25883, 8.64389, 16.8994, 1.25883, 8.64389, 23.1494, 1.25883, -0.35611, 4.3994, 1.25883, 8.64389, 23.1494, 1.25883, -0.35611, 23.1494, 1.25883, -9.10611, 9.6494, 1.25883, -26.6061, -1.6006, 1.25883, -26.6061, -1.8506, 1.25883, 8.64389 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 11, 8, 12 ), PoolIntArray( 15, 14, 13 ), PoolIntArray( 18, 17, 16 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 22, 19, 24 ), PoolIntArray( 22, 24, 23 ), PoolIntArray( 26, 25, 27 ), PoolIntArray( 27, 25, 28 ), PoolIntArray( 31, 30, 29 ), PoolIntArray( 33, 32, 34 ), PoolIntArray( 34, 32, 36 ), PoolIntArray( 34, 36, 35 ), PoolIntArray( 39, 38, 37 ), PoolIntArray( 42, 41, 40 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 46, 51, 47 ), PoolIntArray( 47, 51, 48 ), PoolIntArray( 48, 51, 49 ), PoolIntArray( 49, 51, 50 ) ]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1, 1.92244 )
 
 [sub_resource type="CubeMesh" id=2]
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.262745, 0.262745, 0.262745, 1 )
-metallic_specular = 0.38
 
 [node name="Spatial" type="Spatial"]
 
@@ -38,57 +41,48 @@ parameters/playback = SubResource( 6 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
 navmesh = SubResource( 5 )
+enabled = false
 
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance"]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( 23.6006, 0, 0, 0, 0.991166, 0, 0, 0, 9.91166, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.923888 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.88629, 0, 0, -0.968229 )
 mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+material/0 = ExtResource( 6 )
 
-[node name="StaticBody2" type="StaticBody" parent="NavigationMeshInstance"]
-transform = Transform( 3.91479, 0, 0, 0, 1.06852, 0, 0, 0, 1.93977, 0, 1.76002, 0 )
+[node name="basic_building" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.261, 0.991223, -28.1863 )
 
-[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody2"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody2"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="StaticBody3" type="StaticBody" parent="NavigationMeshInstance"]
-transform = Transform( 3.91479, 0, 0, 0, 1.06852, 0, 0, 0, -12.1438, -13.3647, 1.76002, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody3"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody3"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="StaticBody6" type="StaticBody" parent="NavigationMeshInstance"]
-transform = Transform( -1.71121e-07, 0, -12.1438, 0, 1.06852, 0, -3.91479, 0, 5.30821e-07, 2.11186, 1.76002, 13.254 )
-
-[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody6"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody6"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.999999, 0.00136763, 0.000971985, -0.000882498, -0.0639767, 0.997951, 0.00142701, -0.99795, -0.0639754, 0.195926, 8.69769, -0.132091 )
-light_energy = 1.649
-
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79032, 1.9474, 4.28767 )
-script = null
+[node name="basic_building2" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.65561, 0.991223, -28.3561 )
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
-pause_mode = 2
 visible = false
 
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64109, 2.06318, -2.94862 )
+patrol_point = [ Vector3( 9, 2, -2 ) ]
+
+[node name="road_cone" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -9.17303, 1.06663, -19.9905 )
+
+[node name="road_cone2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -7.86278, 1.06663, -21.0704 )
+
+[node name="road_cone3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -7.8909, 1.06663, -19.7637 )
+
+[node name="UI" parent="." instance=ExtResource( 7 )]
+
+[node name="stairs" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -13.678, 1.12484, -15.261 )
+
+[connection signal="Power_changed" from="Player" to="UI/Battery" method="_on_Player_Power_changed"]
+
 [editable path="Player"]
+[editable path="UI"]

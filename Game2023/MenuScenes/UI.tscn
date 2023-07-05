@@ -8,5 +8,4 @@
 [node name="Battery" parent="." instance=ExtResource( 2 )]
 
 [node name="Pause" parent="." instance=ExtResource( 1 )]
-pause_mode = 2
 visible = false
