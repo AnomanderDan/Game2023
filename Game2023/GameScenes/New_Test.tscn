@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=4]
+
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -11.4566, 1.28945, -16.6396, -22.7066, 1.28945, -16.6396, -22.7066, 1.28945, -8.38962, -1.45662, 1.28945, -1.63962, 0.0433788, 1.28945, -1.63962, 0.0433788, 1.28945, -16.6396, -1.70662, 1.28945, -0.139616, -1.45662, 1.28945, -1.63962, 0.0433788, 1.28945, -16.6396, -11.4566, 1.28945, -16.6396, -22.7066, 1.28945, -8.38962, -22.7066, 1.28945, -0.139616, 22.7934, 1.28945, -8.38962, 22.7934, 1.28945, -16.6396, 11.2934, 1.28945, -16.6396, 0.0433788, 1.28945, -16.6396, 0.0433788, 1.28945, -1.63962, 1.29338, 1.28945, -1.63962, 0.0433788, 1.28945, -16.6396, 1.29338, 1.28945, -1.63962, 1.54338, 1.28945, -0.139616, 22.7934, 1.28945, -0.139616, 22.7934, 1.28945, -8.38962, 11.2934, 1.28945, -16.6396, -0.706621, 3.53945, -0.639616, -0.706621, 3.53945, 0.610384, 0.543379, 3.53945, 0.610384, 0.543379, 3.53945, -0.639616, -0.456621, 1.28945, -0.389616, -0.456621, 1.28945, 0.360384, 0.293379, 1.28945, 0.360384, 0.293379, 1.28945, -0.389616, -22.7066, 1.28945, 8.11038, -22.7066, 1.28945, 16.6104, -11.4566, 1.28945, 16.6104, 0.0433788, 1.28945, 16.6104, 0.0433788, 1.28945, 1.61038, -1.70662, 1.28945, 1.36038, -11.4566, 1.28945, 16.6104, -11.4566, 1.28945, 16.6104, -1.70662, 1.28945, 1.36038, -1.70662, 1.28945, -0.139616, -22.7066, 1.28945, -0.139616, -22.7066, 1.28945, 8.11038, 11.2934, 1.28945, 16.6104, 22.7934, 1.28945, 16.6104, 22.7934, 1.28945, 8.11038, 1.54338, 1.28945, 1.36038, 0.0433788, 1.28945, 1.61038, 0.0433788, 1.28945, 16.6104, 11.2934, 1.28945, 16.6104, 1.54338, 1.28945, -0.139616, 1.54338, 1.28945, 1.36038, 11.2934, 1.28945, 16.6104, 22.7934, 1.28945, 8.11038, 22.7934, 1.28945, -0.139616 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 8, 6, 9 ), PoolIntArray( 9, 6, 10 ), PoolIntArray( 10, 6, 11 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 17, 16, 15 ), PoolIntArray( 19, 18, 20 ), PoolIntArray( 20, 18, 23 ), PoolIntArray( 20, 23, 22 ), PoolIntArray( 20, 22, 21 ), PoolIntArray( 27, 26, 24 ), PoolIntArray( 24, 26, 25 ), PoolIntArray( 31, 30, 28 ), PoolIntArray( 28, 30, 29 ), PoolIntArray( 34, 33, 32 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 37, 35, 38 ), PoolIntArray( 40, 39, 41 ), PoolIntArray( 41, 39, 43 ), PoolIntArray( 41, 43, 42 ), PoolIntArray( 46, 45, 44 ), PoolIntArray( 48, 47, 49 ), PoolIntArray( 49, 47, 50 ), PoolIntArray( 52, 51, 53 ), PoolIntArray( 53, 51, 54 ), PoolIntArray( 54, 51, 55 ) ]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+
+[node name="New_Test" type="Spatial"]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance"]
+transform = Transform( 23.2066, 0, 0, 0, 1, 0, 0, 0, 17.1396, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody"]
+mesh = SubResource( 3 )
+
+[node name="StaticBody2" type="StaticBody" parent="NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 3.21055, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody2"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody2"]
+mesh = SubResource( 5 )
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0131, 2.00012, -3.7484 )
+patrol_point = [ Vector3( -9.487, 2, 5.289 ), Vector3( -9.487, 2, -3.748 ), Vector3( -16.013, 2, -3.748 ) ]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.582237, -0.668661, 0.462485, 0, 0.568849, 0.822442, -0.813019, -0.478856, 0.331205, -6.26281, 7.65999, 9.343 )
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.683116, 1.30668, -12.5189 )
+
+[node name="UI" parent="." instance=ExtResource( 4 )]
