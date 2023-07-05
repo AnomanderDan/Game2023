@@ -2,6 +2,7 @@ extends Area
 
 export var scene = ""
 
-func _on_Area2D_area_entered(area):
-	var _return_value = get_tree().change_scene("res://scenes/"+ scene +".tscn")
 
+func _on_NextLevel_body_entered(body):
+	if body.name == "Player":
+		var _return_value = get_tree().change_scene("res://scenes/"+ scene +".tscn")
