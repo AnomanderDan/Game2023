@@ -7,6 +7,7 @@ export var max_power = 100
 
 var move_direction = Vector3()
 var vel = Vector3()
+var cam_rotation_spd = 50
 
 onready var camera = $CameraRig/Camera
 onready var camera_rig = $CameraRig
@@ -23,6 +24,7 @@ func _ready():
 
 func _physics_process(delta):
 	camera_follows_player()
+	rotate_camera(delta)
 	
 	look_at_cursor()
 	run(delta)
@@ -35,6 +37,11 @@ func camera_follows_player():
 	var player_pos = global_transform.origin
 	camera_rig.global_transform.origin = player_pos
 
+func rotate_camera(delta):
+	if Input.is_action_pressed("rotate_right"):
+		camera_rig.rotate_y(deg2rad(-cam_rotation_spd * delta))
+	if Input.is_action_pressed("rotate_left"):
+		camera_rig.rotate_y(deg2rad(cam_rotation_spd * delta))
 
 func look_at_cursor():
 	var player_pos = global_transform.origin

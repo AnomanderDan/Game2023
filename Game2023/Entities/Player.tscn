@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://code/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/player(unanimated).tscn" type="PackedScene" id=2]
 [ext_resource path="res://code/interact_ray.gd" type="Script" id=3]
+[ext_resource path="res://Entities/Fire_Ray.gd" type="Script" id=4]
+[ext_resource path="res://MenuScenes/UI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -50,8 +52,6 @@ tracks/0/keys = {
 
 [sub_resource type="BoxShape" id=5]
 
-[sub_resource type="BoxShape" id=6]
-
 [sub_resource type="AnimationNodeStateMachine" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
@@ -91,9 +91,10 @@ margin_top = -7.0
 margin_bottom = 7.0
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Fire_Ray" type="RayCast" parent="."]
+enabled = true
+script = ExtResource( 4 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999849, -0.0173652, 0, 0.0173652, 0.999849, 0, 0, 0.703795 )
@@ -123,17 +124,12 @@ transform = Transform( 0.611809, 0, 0, 0, 1, 0, 0, 0, 0.578415, 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Detection"]
 shape = SubResource( 5 )
 
-[node name="Fire" type="Area" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="Fire"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.66103, 0, 0, -2.99352 )
-shape = SubResource( 6 )
-disabled = true
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 10 )
+
+[node name="UI" parent="." instance=ExtResource( 5 )]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
