@@ -27,18 +27,8 @@ script = ExtResource( 3 )
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 4, -3.06389, 0, 0 )
 shape = SubResource( 4 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 avoidance_enabled = true
-
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 6.0
-one_shot = true
-autostart = true
 
 [node name="monster" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0131885, -0.780151, -0.0271304 )
@@ -57,6 +47,10 @@ spot_angle = 40.7813
 [node name="CollisionShape" type="CollisionShape" parent="Death"]
 shape = SubResource( 5 )
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Aggro" to="Aggro" method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="Aggro" method="_on_Aggro_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
