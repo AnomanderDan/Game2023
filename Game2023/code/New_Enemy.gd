@@ -8,11 +8,11 @@ onready var aggro = $Aggro
 onready var power = max_power setget _set_power
 
 export var patrol_point = []
-export var max_power = 50
+export var max_power = 150
 export var start_pwr = 0
 
 var current_point = 0
-var speed = 200
+var speed = 220
 var min_speed = 100
 var state = null
 var rot_speed = 0.05
@@ -124,7 +124,7 @@ func charge(body):
 	add_power(1)
 
 func _on_Timer_timeout():
-	lose_power(10)
+	lose_power(30)
 	if power >= 0:
 		$Timer.start()
 

@@ -7,5 +7,8 @@ func _physics_process(delta):
 	if is_colliding():
 		var detected = get_collider()
 		
-		if detected is Chargeable:
+		if detected is Charger:
+			detected.charge(owner)
+		
+		elif detected is Chargeable:
 			detected.charge(owner)

@@ -22,6 +22,7 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 transform = Transform( 0.355048, 0, 0, 0, 0.112269, 0, 0, 0, 0.333328, 0, 0.590479, 0 )
@@ -32,6 +33,7 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="StaticBody3" type="StaticBody" parent="."]
 transform = Transform( 0.247322, 0.0805495, 0, -0.254736, 0.0782053, 0, 0, 0, 0.333328, 0.0857379, 0.795227, 0 )
@@ -69,3 +71,4 @@ shape = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.408231, 0, 0, 0, 1, 0, 0, 0, 0.340866, 0, 0, 0 )
 shape = SubResource( 5 )
+disabled = true

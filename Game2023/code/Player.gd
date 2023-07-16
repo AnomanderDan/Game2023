@@ -1,6 +1,6 @@
 extends KinematicBody
 
-export var speed = 50
+export var speed = 40
 export var concentrate_spd = 25
 export var friction = 0.875
 export var gravity = 80.0
