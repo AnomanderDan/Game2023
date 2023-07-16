@@ -16,18 +16,12 @@ func get_prompt():
 
 
 func interact(body):
-	print("button")
-	emit_signal("interacted", body)
-
-#This function determines whether or not a button becomes interactive
-func toggle_active(_value):
-	activity != activity
-	
 	if activity == true:
-		prompt_action = "interact"
-	
+		print("active")
+		emit_signal("interacted", body)
 	elif activity == false:
-		prompt_action = null
+		print("inactive")
+		pass
 
 func _on_Charge_Station_pwr_down():
 	activity = false
