@@ -46,9 +46,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpotLight" parent="Player" index="6"]
-transform = Transform( 1, 0, 0, 0, 0.995307, 0.0967665, 0, -0.0967665, 0.995307, 0, 0, 0.703795 )
-
 [node name="AnimationTree" parent="Player" index="11"]
 parameters/playback = SubResource( 6 )
 
