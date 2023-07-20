@@ -106,7 +106,7 @@ func _set_power(value):
 		emit_signal("Power_changed", power)
 		if power == 0:
 			$DeathTimer.start()
-			animate.travel("Battery_dead")
+			$AnimationPlayer.play("Battery_dead")
 
 func power_loss(amount):
 	_set_power(power - amount)
@@ -117,7 +117,7 @@ func _on_Timer_timeout():
 		power_loss(6)
 		timer.start()
 	else:
-		power_loss(3)
+		power_loss(100)
 		timer.start()
 
 
@@ -129,3 +129,7 @@ func die():
 func _on_Detection_area_entered(area):
 	if area.name == "Death":
 		die()
+
+
+func _on_DeathTimer_timeout():
+	die()

@@ -16,15 +16,4 @@ func get_prompt():
 
 
 func interact(body):
-	if activity == true:
-		print("active")
-		emit_signal("interacted", body)
-	elif activity == false:
-		print("inactive")
-		pass
-
-func _on_Charge_Station_pwr_down():
-	activity = false
-
-func _on_Charge_Station_pwr_up():
-	activity = true
+	emit_signal("interacted", body)
