@@ -117,7 +117,7 @@ func _on_Timer_timeout():
 		power_loss(6)
 		timer.start()
 	else:
-		power_loss(100)
+		power_loss(3)
 		timer.start()
 
 

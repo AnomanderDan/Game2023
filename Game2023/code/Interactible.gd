@@ -16,4 +16,5 @@ func get_prompt():
 
 
 func interact(body):
+	print("interacted")
 	emit_signal("interacted", body)

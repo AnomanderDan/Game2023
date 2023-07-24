@@ -17,3 +17,11 @@ func toggle_door(_body):
 	
 	else:
 		playback.travel("Close")
+
+
+func _on_Charge_Station_pwr_up():
+	playback.travel("Open")
+
+
+func _on_Charge_Station_pwr_down():
+	playback.travel("Close")

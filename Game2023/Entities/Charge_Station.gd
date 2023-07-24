@@ -7,6 +7,8 @@ export var max_power = 150
 export var start_pwr = 0
 export var deplete = 0
 
+onready var timer : Timer = $Timer
+
 
 signal pwr_up()
 signal pwr_down()
@@ -26,13 +28,14 @@ func _set_power(value):
 		emit_signal("pwr_up")
 		if power >= 0:
 			$AnimationPlayer.play("ON")
-			$Timer.start()
+			timer.start()
 		
 	elif power == start_pwr:
 		print("powered down")
-		$Timer.stop()
-		$AnimationPlayer.play("OFF")
-		emit_signal("pwr_down")
+		if power >= 0:
+			timer.stop()
+			$AnimationPlayer.play("OFF")
+			emit_signal("pwr_down")
 
 func add_power(amount):
 	_set_power(power + amount)
@@ -41,9 +44,11 @@ func lose_power(amount):
 	_set_power(power - amount)
 
 func charge(body):
-	add_power(50)
+	add_power(1)
 
 func _on_Timer_timeout():
 	lose_power(deplete)
 	if power >= 0:
 		$Timer.start()
+	elif power == start_pwr:
+		$Timer.stop()
