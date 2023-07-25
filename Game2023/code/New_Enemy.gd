@@ -10,6 +10,7 @@ onready var power = max_power setget _set_power
 export var patrol_point = []
 export var max_power = 150
 export var start_pwr = 0
+export var time_taken = 0
 
 var current_point = 0
 var speed = 220
@@ -99,16 +100,13 @@ func _on_NavigationAgent_velocity_computed(safe_velocity):
 func _set_power(value):
 	var prev_power = power
 	power = clamp(value, 0, max_power)
-	print(power)
 	if power == max_power:
-		if power >= 0:
-			state = STUN
-			$Timer.start()
+		state = STUN
+		$Timer.start(time_taken)
 		
-	elif power == start_pwr:
+	elif power == 0:
 		speed = 200
 		min_speed = 100
-		$Timer.stop()
 		if aggro.player != null:
 			state = ATTACK
 		elif aggro.player == null:
@@ -124,7 +122,5 @@ func charge(body):
 	add_power(1)
 
 func _on_Timer_timeout():
-	lose_power(30)
-	if power >= 0:
-		$Timer.start()
+	lose_power(max_power)
 

@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Entities/Charge_Station.gd"
 }, {
 "base": "StaticBody",
+"class": "InteractionPoint",
+"language": "GDScript",
+"path": "res://Entities/HiddenDoor.gd"
+}, {
+"base": "StaticBody",
 "class": "Interactive",
 "language": "GDScript",
 "path": "res://code/Interactible.gd"
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Chargeable": "",
 "Charger": "",
+"InteractionPoint": "",
 "Interactive": ""
 }
 

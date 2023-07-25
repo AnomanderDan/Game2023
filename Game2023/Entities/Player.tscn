@@ -253,9 +253,9 @@ transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.02041
 [node name="CameraRig" type="Position3D" parent="."]
 
 [node name="Camera" type="Camera" parent="CameraRig"]
-transform = Transform( 0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, -6, 6, 6 )
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -6, 6, 6 )
 projection = 1
-size = 13.0346
+size = 12.8464
 near = 0.01
 
 [node name="Cursor" type="MeshInstance" parent="."]

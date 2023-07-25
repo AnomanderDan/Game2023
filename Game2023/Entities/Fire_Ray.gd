@@ -3,7 +3,7 @@ extends RayCast
 func _ready():
 	add_exception(owner)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_colliding():
 		var detected = get_collider()
 		

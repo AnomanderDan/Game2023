@@ -35,7 +35,9 @@ func _physics_process(delta):
 	concentrate()
 	
 	vel *= friction
-	vel.y -= gravity * delta
+	var grav_res = get_floor_normal() if is_on_floor() else Vector3.UP
+	vel -= grav_res * gravity * delta
+	#vel.y -= gravity * delta
 	vel = move_and_slide_with_snap(vel, Vector3.UP, Vector3.UP, true, 3)
 
 #Camera Functionality

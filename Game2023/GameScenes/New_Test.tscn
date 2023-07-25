@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/GlowShroom.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameScenes/Door.gd" type="Script" id=6]
+[ext_resource path="res://Entities/HiddenDoor.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Environment" id=6]
 
@@ -159,11 +160,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0131, 2.00012, -3.7484 )
 patrol_point = [ Vector3( -9.487, 2, 5.289 ), Vector3( -9.487, 2, -3.748 ), Vector3( -16.013, 2, -3.748 ) ]
 
 [node name="Button" parent="WorldEnvironment" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.683116, 1.30668, -12.5189 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.359466, 1.30668, -12.5189 )
 
-[node name="Charge_Station" parent="WorldEnvironment" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, -2.17616e-09, -1, 0, 0.0497847, -4.37114e-08, 3.28595, 2.07489, -12.2134 )
-deplete = 20
+[node name="HiddenDoor" parent="WorldEnvironment" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2243, 1.87509, -12.5097 )
 
 [node name="Player" parent="WorldEnvironment" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2579, 1.92128, -3.9684 )
@@ -200,5 +200,9 @@ parameters/playback = SubResource( 16 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.976631, 0.214923, 0, -0.214923, 0.976631, 0, 5.3073, 0 )
 
-[connection signal="pwr_down" from="WorldEnvironment/Charge_Station" to="StaticBody" method="_on_Charge_Station_pwr_down"]
-[connection signal="pwr_up" from="WorldEnvironment/Charge_Station" to="StaticBody" method="_on_Charge_Station_pwr_up"]
+[node name="Charge_Station" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -0.000211144, -0.999991, 0, 0.0497843, -0.00424114, 12.2686, 2.0823, -12.0894 )
+time_taken = 4
+
+[connection signal="pwr_down" from="Charge_Station" to="StaticBody" method="_on_Charge_Station_pwr_down"]
+[connection signal="pwr_up" from="Charge_Station" to="StaticBody" method="_on_Charge_Station_pwr_up"]

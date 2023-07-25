@@ -5,7 +5,7 @@ onready var power = max_power setget _set_power
 
 export var max_power = 150
 export var start_pwr = 0
-export var deplete = 0
+export var time_taken = 0
 
 onready var timer : Timer = $Timer
 
@@ -17,6 +17,7 @@ signal pwr_down()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("OFF")
+	power = start_pwr
 
 #Energy related functions:
 func _set_power(value):
@@ -28,7 +29,7 @@ func _set_power(value):
 		emit_signal("pwr_up")
 		if power >= 0:
 			$AnimationPlayer.play("ON")
-			timer.start()
+			timer.start(time_taken)
 		
 	elif power == start_pwr:
 		print("powered down")
@@ -47,8 +48,4 @@ func charge(body):
 	add_power(1)
 
 func _on_Timer_timeout():
-	lose_power(deplete)
-	if power >= 0:
-		$Timer.start()
-	elif power == start_pwr:
-		$Timer.stop()
+	lose_power(max_power)
