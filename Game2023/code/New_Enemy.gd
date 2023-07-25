@@ -118,7 +118,7 @@ func add_power(amount):
 func lose_power(amount):
 	_set_power(power - amount)
 
-func charge(body):
+func charge(_body):
 	add_power(1)
 
 func _on_Timer_timeout():
