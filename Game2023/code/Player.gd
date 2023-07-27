@@ -16,7 +16,7 @@ onready var camera_rig = $CameraRig
 onready var cursor = $Cursor
 onready var power = max_power setget _set_power
 onready var timer = $Timer
-
+onready var player_animation = $player1/PlayerAnimations
 
 signal Power_changed(power)
 
@@ -87,6 +87,10 @@ func run(delta):
 		vel += move_direction * concentrate_spd * delta
 	else:
 		vel += move_direction * speed * delta
+	if move_direction.length() >= 0.1:
+		player_animation.play("Armature001Action001 2")
+	else:
+		player_animation.play("Armature001Action001")
 
 #Lamp mode change
 func concentrate():
