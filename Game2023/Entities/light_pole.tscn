@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Entities/Material.material" type="Material" id=1]
 [ext_resource path="res://Entities/Material_002.material" type="Material" id=2]
@@ -71,6 +71,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 2.5, 0.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyKillZone/CollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Light_Up"
@@ -99,6 +111,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 2.5 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyKillZone/CollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -126,6 +150,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 2.5 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyKillZone/CollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Dim"
@@ -150,6 +186,9 @@ start_node = "Dim"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=4]
 
 [sub_resource type="BoxShape" id=11]
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 3.92966, 0.431156, 3.20781 )
 
 [node name="light_pole" type="Spatial"]
 script = ExtResource( 4 )
@@ -186,3 +225,12 @@ parameters/playback = SubResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.146821, 0, 0, 0, 2.17961, 0, 0, 0, 0.160183, 0, 2.2157, 0 )
 shape = SubResource( 11 )
+
+[node name="EnemyKillZone" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="EnemyKillZone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682019, 0.515513, 0 )
+shape = SubResource( 12 )
+disabled = true
+
+[connection signal="body_entered" from="EnemyKillZone" to="." method="_on_EnemyKillZone_body_entered"]

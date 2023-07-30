@@ -124,3 +124,8 @@ func charge(_body):
 func _on_Timer_timeout():
 	lose_power(max_power)
 
+
+
+func _on_Area_area_entered(area):
+	if area.name == "EnemyKillZone":
+		state = DIE

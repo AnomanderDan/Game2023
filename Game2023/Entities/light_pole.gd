@@ -17,3 +17,11 @@ func toggle_light(_body):
 	
 	else:
 		playback.travel("Dim")
+
+
+func _on_Charge_Station_pwr_up():
+	playback.travel("Open")
+
+
+func _on_Charge_Station_pwr_down():
+	playback.travel("Close")

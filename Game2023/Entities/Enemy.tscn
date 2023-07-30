@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://code/New_Enemy.gd" type="Script" id=1]
 [ext_resource path="res://monster_model.tscn" type="PackedScene" id=2]
@@ -12,7 +12,9 @@ radius = 0.5
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 1, 1, 0.87401 )
 
-[node name="Enemy" type="KinematicBody"]
+[sub_resource type="BoxShape" id=6]
+
+[node name="Enemy" type="KinematicBody" groups=["enemy"]]
 script = ExtResource( 1 )
 time_taken = 5
 
@@ -48,10 +50,16 @@ spot_angle = 40.7813
 [node name="CollisionShape" type="CollisionShape" parent="Death"]
 shape = SubResource( 5 )
 
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 6 )
+
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="Aggro" to="Aggro" method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="Aggro" method="_on_Aggro_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
