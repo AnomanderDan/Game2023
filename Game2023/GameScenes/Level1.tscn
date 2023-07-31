@@ -44,19 +44,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.864, 1, 0.531 )
 [node name="Skeleton" parent="Player/player1/Armature001" index="0"]
 bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
 
-[node name="BoneAttachment" parent="Player/player1/Armature001/Skeleton" index="0"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
-
-[node name="BoneAttachment2" parent="Player/player1/Armature001/Skeleton" index="1"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
-
-[node name="BoneAttachment3" parent="Player/player1/Armature001/Skeleton" index="2"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
-
 [node name="Prompt" parent="Player/Interact_ray" index="0"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SpotLight" parent="Player" index="6"]
+transform = Transform( 1, 0, 0, 0, 0.995307, 0.0967665, 0, -0.0967665, 0.995307, 0, 0, 0.703795 )
 
 [node name="AnimationTree" parent="Player" index="11"]
 parameters/playback = SubResource( 6 )
