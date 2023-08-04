@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/GlowShroom.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameScenes/Door.gd" type="Script" id=6]
 [ext_resource path="res://Entities/HiddenDoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://EventArea.gd" type="Script" id=8]
 
 [sub_resource type="Environment" id=6]
 
@@ -129,6 +130,55 @@ start_node = "Close"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
+[sub_resource type="BoxShape" id=21]
+
+[sub_resource type="Animation" id=19]
+resource_name = "Event"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Nothing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
 [node name="New_Test" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -204,5 +254,31 @@ transform = Transform( 1, 0, 0, 0, 0.976631, 0.214923, 0, -0.214923, 0.976631, 0
 transform = Transform( 1, 0, 0, 0, -0.000211144, -0.999991, 0, 0.0497843, -0.00424114, 12.2686, 2.0823, -12.0894 )
 time_taken = 4
 
+[node name="EventArea" type="Area" parent="."]
+transform = Transform( 9.33733, 0, 0, 0, 1, 0, 0, 0, 1, 9.14618, 1.61053, 3.92183 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="EventArea"]
+shape = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EventArea"]
+anims/Event = SubResource( 19 )
+anims/Nothing = SubResource( 18 )
+anims/RESET = SubResource( 20 )
+
+[node name="Label" type="Label" parent="EventArea"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -84.0
+margin_top = -7.0
+margin_right = 84.0
+margin_bottom = 7.0
+text = "EEEEEEEEEEEEEEEEEEEEEEEE"
+
 [connection signal="pwr_down" from="Charge_Station" to="StaticBody" method="_on_Charge_Station_pwr_down"]
 [connection signal="pwr_up" from="Charge_Station" to="StaticBody" method="_on_Charge_Station_pwr_up"]
+[connection signal="body_entered" from="EventArea" to="EventArea" method="_on_EventArea_body_entered"]
+[connection signal="animation_finished" from="EventArea/AnimationPlayer" to="EventArea" method="_on_AnimationPlayer_animation_finished"]

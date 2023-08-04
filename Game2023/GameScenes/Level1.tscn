@@ -41,9 +41,6 @@ environment = SubResource( 4 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.864, 1, 0.531 )
 
-[node name="Skeleton" parent="Player/player1/Armature001" index="0"]
-bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
-
 [node name="Prompt" parent="Player/Interact_ray" index="0"]
 __meta__ = {
 "_edit_use_anchors_": false
