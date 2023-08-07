@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactWood_light_004.ogg-92831ac1b3277bc5028627575f0a943a.oggstr"
+
+[deps]
+
+source_file="res://kenney_impact-sounds/Audio/impactWood_light_004.ogg"
+dest_files=[ "res://.import/impactWood_light_004.ogg-92831ac1b3277bc5028627575f0a943a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

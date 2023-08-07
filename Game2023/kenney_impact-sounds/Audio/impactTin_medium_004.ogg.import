@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactTin_medium_004.ogg-1aa446a36a96c92d1a742eeca61b861b.oggstr"
+
+[deps]
+
+source_file="res://kenney_impact-sounds/Audio/impactTin_medium_004.ogg"
+dest_files=[ "res://.import/impactTin_medium_004.ogg-1aa446a36a96c92d1a742eeca61b861b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
