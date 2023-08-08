@@ -89,6 +89,7 @@ func run(delta):
 		vel += move_direction * speed * delta
 	if move_direction.length() >= 0.1:
 		player_animation.play("Armature001Action001 2")
+			
 	else:
 		player_animation.play("Armature001Action001")
 
