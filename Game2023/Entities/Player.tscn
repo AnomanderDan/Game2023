@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://code/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Material_001.material" type="Material" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sprites/Material_008.material" type="Material" id=11]
 [ext_resource path="res://Sprites/Material_005.material" type="Material" id=12]
 [ext_resource path="res://kenney_impact-sounds/Audio/footstep_concrete_000.ogg" type="AudioStream" id=13]
+[ext_resource path="res://addons/kenney_particle_pack/smoke_07.png" type="Texture" id=14]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -634,6 +635,33 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="Gradient" id=32]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=33]
+gradient = SubResource( 32 )
+
+[sub_resource type="ParticlesMaterial" id=29]
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0.1, 0 )
+initial_velocity = 0.2
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+angle = 360.0
+angle_random = 1.0
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+color_ramp = SubResource( 33 )
+
+[sub_resource type="SpatialMaterial" id=30]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 1
+albedo_texture = ExtResource( 14 )
+
+[sub_resource type="QuadMesh" id=31]
+material = SubResource( 30 )
+
 [sub_resource type="CapsuleMesh" id=18]
 radius = 0.1
 mid_height = 0.1
@@ -916,7 +944,7 @@ bones/7/name = "Bone.012"
 bones/7/parent = -1
 bones/7/rest = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bones/7/enabled = true
-bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
+bones/7/bound_children = [  ]
 bones/8/name = "Bone.005"
 bones/8/parent = -1
 bones/8/rest = Transform( -0.205813, 0.829481, -0.00757973, -0.00618395, 0.00546262, 0.999955, 0.97833, 0.174534, 0.00472603, 0.00200765, 0.314523, -0.00109582 )
@@ -999,7 +1027,7 @@ bones/23/enabled = true
 bones/23/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998696, 0.0191641, -0.04732, -0.0143986, 0.994976, 0.099072, 0.0489809, -0.0982614, 0.993954, -0.00229555, 0.66176, -0.00887035 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment"]
@@ -1007,7 +1035,7 @@ transform = Transform( 0.651616, -0.010471, -0.00175478, 0.010471, 0.651618, 1.0
 mesh = SubResource( 2 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998696, 0.0191641, -0.04732, -0.0143986, 0.994976, 0.099072, 0.0489809, -0.0982614, 0.993954, -0.00229555, 0.66176, -0.00887035 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere001" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment2"]
@@ -1015,7 +1043,7 @@ transform = Transform( 0.0111329, -0.000257975, -2.99804e-05, 0.000178897, 0.016
 mesh = SubResource( 3 )
 
 [node name="BoneAttachment3" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998696, 0.0191641, -0.04732, -0.0143986, 0.994976, 0.099072, 0.0489809, -0.0982614, 0.993954, -0.00229555, 0.66176, -0.00887035 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere002" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment3"]
@@ -1046,6 +1074,13 @@ skin = SubResource( 6 )
 anims/Armature001Action001 = SubResource( 11 )
 "anims/Armature001Action001 2" = SubResource( 12 )
 anims/RESET = SubResource( 28 )
+
+[node name="Particles" type="Particles" parent="player1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1153e-09, 0, 0.0127575 )
+amount = 12
+local_coords = false
+process_material = SubResource( 29 )
+draw_pass_1 = SubResource( 31 )
 
 [node name="CameraRig" type="Position3D" parent="."]
 

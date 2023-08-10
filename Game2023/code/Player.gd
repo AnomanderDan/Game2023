@@ -17,6 +17,7 @@ onready var cursor = $Cursor
 onready var power = max_power setget _set_power
 onready var timer = $Timer
 onready var player_animation = $player1/PlayerAnimations
+onready var particles = $player1/Particles
 
 signal Power_changed(power)
 
@@ -92,6 +93,10 @@ func run(delta):
 			
 	else:
 		player_animation.play("Armature001Action001")
+	if move_direction.length() > 0.01:
+		particles.emitting = true
+	else:
+		particles.emitting = false
 
 #Lamp mode change
 func concentrate():
