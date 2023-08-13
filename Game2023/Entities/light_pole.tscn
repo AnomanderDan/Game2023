@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Entities/Material.material" type="Material" id=1]
 [ext_resource path="res://Entities/Material_002.material" type="Material" id=2]
 [ext_resource path="res://Entities/Material_001.material" type="Material" id=3]
 [ext_resource path="res://Entities/light_pole.gd" type="Script" id=4]
+[ext_resource path="res://addons/kenney_particle_pack/light_03.png" type="Texture" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "light_pole_Cube"
@@ -190,6 +191,26 @@ start_node = "Dim"
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 3.92966, 0.431156, 3.20781 )
 
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 2
+emission_box_extents = Vector3( 3, 1, 3 )
+gravity = Vector3( 0, 0.5, 0 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="QuadMesh" id=14]
+material = SubResource( 15 )
+size = Vector2( 0.5, 0.5 )
+
 [node name="light_pole" type="Spatial"]
 script = ExtResource( 4 )
 
@@ -232,5 +253,13 @@ shape = SubResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682019, 0.515513, 0 )
 shape = SubResource( 12 )
 disabled = true
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03386, 0 )
+amount = 4
+speed_scale = 0.2
+randomness = 0.46
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )
 
 [connection signal="body_entered" from="EnemyKillZone" to="." method="_on_EnemyKillZone_body_entered"]

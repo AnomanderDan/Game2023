@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://code/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Material_001.material" type="Material" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Sprites/Material_005.material" type="Material" id=12]
 [ext_resource path="res://kenney_impact-sounds/Audio/footstep_concrete_000.ogg" type="AudioStream" id=13]
 [ext_resource path="res://addons/kenney_particle_pack/smoke_07.png" type="Texture" id=14]
+[ext_resource path="res://addons/kenney_particle_pack/light_02.png" type="Texture" id=15]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -891,6 +892,28 @@ graph_offset = Vector2( -180.542, 0 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
+[sub_resource type="ParticlesMaterial" id=34]
+emission_shape = 2
+emission_box_extents = Vector3( 0.2, 0, 1 )
+gravity = Vector3( 0, 0, -5 )
+
+[sub_resource type="SpatialMaterial" id=35]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 15 )
+proximity_fade_enable = true
+proximity_fade_distance = 1.0
+
+[sub_resource type="QuadMesh" id=36]
+material = SubResource( 35 )
+size = Vector2( 0.1, 0.1 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -944,7 +967,7 @@ bones/7/name = "Bone.012"
 bones/7/parent = -1
 bones/7/rest = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bones/7/enabled = true
-bones/7/bound_children = [  ]
+bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
 bones/8/name = "Bone.005"
 bones/8/parent = -1
 bones/8/rest = Transform( -0.205813, 0.829481, -0.00757973, -0.00618395, 0.00546262, 0.999955, 0.97833, 0.174534, 0.00472603, 0.00200765, 0.314523, -0.00109582 )
@@ -1027,7 +1050,7 @@ bones/23/enabled = true
 bones/23/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000258013, 0.0474726, 0.000504994, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment"]
@@ -1035,7 +1058,7 @@ transform = Transform( 0.651616, -0.010471, -0.00175478, 0.010471, 0.651618, 1.0
 mesh = SubResource( 2 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000258013, 0.0474726, 0.000504994, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere001" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment2"]
@@ -1043,7 +1066,7 @@ transform = Transform( 0.0111329, -0.000257975, -2.99804e-05, 0.000178897, 0.016
 mesh = SubResource( 3 )
 
 [node name="BoneAttachment3" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000258013, 0.0474726, 0.000504994, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere002" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment3"]
@@ -1075,7 +1098,7 @@ anims/Armature001Action001 = SubResource( 11 )
 "anims/Armature001Action001 2" = SubResource( 12 )
 anims/RESET = SubResource( 28 )
 
-[node name="Particles" type="Particles" parent="player1"]
+[node name="DustParticles" type="Particles" parent="player1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1153e-09, 0, 0.0127575 )
 amount = 12
 local_coords = false
@@ -1148,6 +1171,20 @@ tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 27 )
+
+[node name="BaseLight" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567286 )
+emitting = false
+amount = 2
+local_coords = false
+process_material = SubResource( 34 )
+draw_pass_1 = SubResource( 36 )
+
+[node name="ConcentratedLight" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567286 )
+local_coords = false
+process_material = SubResource( 34 )
+draw_pass_1 = SubResource( 36 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )

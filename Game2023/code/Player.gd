@@ -17,7 +17,9 @@ onready var cursor = $Cursor
 onready var power = max_power setget _set_power
 onready var timer = $Timer
 onready var player_animation = $player1/PlayerAnimations
-onready var particles = $player1/Particles
+onready var dustparticles = $player1/DustParticles
+onready var baseparticles = $BaseLight
+onready var conparticles = $ConcentratedLight
 
 signal Power_changed(power)
 
@@ -25,6 +27,7 @@ signal Power_changed(power)
 func _ready():
 	camera_rig.set_as_toplevel(true)
 	animate = $AnimationTree.get("parameters/playback")
+	baseparticles.emitting = true
 
 
 func _physics_process(delta):
@@ -94,17 +97,21 @@ func run(delta):
 	else:
 		player_animation.play("Armature001Action001")
 	if move_direction.length() > 0.01:
-		particles.emitting = true
+		dustparticles.emitting = true
 	else:
-		particles.emitting = false
+		dustparticles.emitting = false
 
 #Lamp mode change
 func concentrate():
 	if Input.is_action_pressed("light_beam"):
 		animate.travel("Concentrated_Light")
+		conparticles.emitting = true
+		baseparticles.emitting = false
 		
 	else:
 		animate.travel("Normal_Light")
+		conparticles.emitting = false
+		baseparticles.emitting = true
 
 
 #energy related functions
