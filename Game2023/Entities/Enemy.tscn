@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://code/New_Enemy.gd" type="Script" id=1]
 [ext_resource path="res://monster_model.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Aggro.gd" type="Script" id=3]
 [ext_resource path="res://addons/kenney_particle_pack/light_01.png" type="Texture" id=4]
+[ext_resource path="res://addons/kenney_particle_pack/smoke_07.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.5
@@ -18,7 +19,7 @@ extents = Vector3( 1, 1, 0.87401 )
 [sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 1
 emission_sphere_radius = 1.0
-gravity = Vector3( 0, 0.6, 0 )
+gravity = Vector3( 0, 0.6, 2 )
 
 [sub_resource type="SpatialMaterial" id=8]
 flags_transparent = true
@@ -33,6 +34,35 @@ albedo_texture = ExtResource( 4 )
 
 [sub_resource type="QuadMesh" id=9]
 material = SubResource( 8 )
+
+[sub_resource type="Gradient" id=34]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=33]
+gradient = SubResource( 34 )
+
+[sub_resource type="ParticlesMaterial" id=35]
+emission_shape = 2
+emission_box_extents = Vector3( 0.3, 0, 0.3 )
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0.1, 0 )
+initial_velocity = 0.2
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+angle = 360.0
+angle_random = 1.0
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+color_ramp = SubResource( 33 )
+
+[sub_resource type="SpatialMaterial" id=30]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 1
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="QuadMesh" id=36]
+material = SubResource( 30 )
 
 [node name="Enemy" type="KinematicBody" groups=["enemy"]]
 script = ExtResource( 1 )
@@ -79,11 +109,18 @@ shape = SubResource( 6 )
 one_shot = true
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.747261, -0.0717018 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.747261, 0.367937 )
 amount = 4
 local_coords = false
 process_material = SubResource( 7 )
 draw_pass_1 = SubResource( 9 )
+
+[node name="DustParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1153e-09, -0.64693, 0.834536 )
+amount = 12
+local_coords = false
+process_material = SubResource( 35 )
+draw_pass_1 = SubResource( 36 )
 
 [connection signal="body_entered" from="Aggro" to="Aggro" method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="Aggro" method="_on_Aggro_body_exited"]

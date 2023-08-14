@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://code/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Material_001.material" type="Material" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://kenney_impact-sounds/Audio/footstep_concrete_000.ogg" type="AudioStream" id=13]
 [ext_resource path="res://addons/kenney_particle_pack/smoke_07.png" type="Texture" id=14]
 [ext_resource path="res://addons/kenney_particle_pack/light_02.png" type="Texture" id=15]
+[ext_resource path="res://kenney_impact-sounds/Audio/impactSoft_heavy_000.ogg" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -435,6 +436,18 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = PoolRealArray( 0, 1, 0, 0, 0, -1.86265e-09, -1.73472e-18, 9.31323e-10, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.00048753, -8.29567e-05, 3.45293e-05, 1, 1, 1, 1, 0.133333, 1, 0, 0, 0, -0.00376435, -0.000640551, 0.00026661, 0.999993, 1, 1, 1, 0.2, 1, 0, 0, 0, -0.0100203, -0.00170502, 0.000709698, 0.999948, 1, 1, 1, 0.466667, 1, 0, 0, 0, -0.0424193, -0.00721797, 0.0030044, 0.999069, 1, 1, 1, 0.533333, 1, 0, 0, 0, -0.0469831, -0.00799454, 0.00332763, 0.998858, 1, 1, 1, 0.6, 1, 0, 0, 0, -0.0479656, -0.0081617, 0.00339722, 0.99881, 1, 1, 1, 0.666667, 1, 0, 0, 0, -0.0455769, -0.00775524, 0.00322804, 0.998926, 1, 1, 1, 0.733333, 1, 0, 0, 0, -0.0402356, -0.00684641, 0.00284973, 0.999163, 1, 1, 1, 1.06667, 1, 0, 0, 0, -0.00388262, -0.000660673, 0.00027499, 0.999992, 1, 1, 1, 1.13333, 1, 0, 0, 0, -0.000562659, -9.57326e-05, 3.98519e-05, 1, 1, 1, 1, 1.2, 1, 0, 0, 0, -0.00065004, -0.000110611, 4.60391e-05, 1, 1, 1, 1, 1.26667, 1, 0, 0, 0, -0.00445404, -0.000757908, 0.000315459, 0.99999, 1, 1, 1, 1.33333, 1, 0, 0, 0, -0.0108946, -0.00185379, 0.00077162, 0.999939, 1, 1, 1, 1.6, 1, 0, 0, 0, -0.0431084, -0.00733522, 0.0030532, 0.999039, 1, 1, 1, 1.66667, 1, 0, 0, 0, -0.047435, -0.00807143, 0.00335963, 0.998836, 1, 1, 1, 1.73333, 1, 0, 0, 0, -0.0476777, -0.00811274, 0.00337682, 0.998824, 1, 1, 1, 1.8, 1, 0, 0, 0, -0.0438841, -0.00746723, 0.00310814, 0.999004, 1, 1, 1, 1.86667, 1, 0, 0, 0, -0.0367402, -0.00625163, 0.00260216, 0.999302, 1, 1, 1, 2.06667, 1, 0, 0, 0, -0.00952837, -0.00162133, 0.000674857, 0.999953, 1, 1, 1, 2.13333, 1, 0, 0, 0, -0.00304914, -0.000518842, 0.000215958, 0.999995, 1, 1, 1, 2.20833, 1, 0, 0, 0, -1.86265e-09, -1.73472e-18, 9.31323e-10, 1, 1, 1, 1 )
+tracks/24/type = "value"
+tracks/24/path = NodePath("../AudioStreamPlayer:playing")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "Armature001Action001 2"
@@ -615,10 +628,10 @@ tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ true, false, true, false ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -635,11 +648,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 13 ) ]
+}
 
 [sub_resource type="Gradient" id=32]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=33]
+[sub_resource type="GradientTexture" id=39]
 gradient = SubResource( 32 )
 
 [sub_resource type="ParticlesMaterial" id=29]
@@ -651,9 +676,9 @@ angular_velocity_random = 1.0
 angle = 360.0
 angle_random = 1.0
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
-color_ramp = SubResource( 33 )
+color_ramp = SubResource( 39 )
 
-[sub_resource type="SpatialMaterial" id=30]
+[sub_resource type="SpatialMaterial" id=40]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -661,11 +686,54 @@ params_billboard_mode = 1
 albedo_texture = ExtResource( 14 )
 
 [sub_resource type="QuadMesh" id=31]
-material = SubResource( 30 )
+material = SubResource( 40 )
 
 [sub_resource type="CapsuleMesh" id=18]
 radius = 0.1
 mid_height = 0.1
+
+[sub_resource type="Animation" id=37]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SFXinteract:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interact_ray/SFXinteract:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Sound"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact_ray/SFXinteract:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=19]
 length = 2.1
@@ -894,8 +962,9 @@ graph_offset = Vector2( -180.542, 0 )
 
 [sub_resource type="ParticlesMaterial" id=34]
 emission_shape = 2
-emission_box_extents = Vector3( 0.2, 0, 1 )
-gravity = Vector3( 0, 0, -5 )
+emission_box_extents = Vector3( 0.3, 0, 2 )
+gravity = Vector3( 0, 0.1, 0 )
+scale = 2.0
 
 [sub_resource type="SpatialMaterial" id=35]
 flags_transparent = true
@@ -967,7 +1036,7 @@ bones/7/name = "Bone.012"
 bones/7/parent = -1
 bones/7/rest = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bones/7/enabled = true
-bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
+bones/7/bound_children = [  ]
 bones/8/name = "Bone.005"
 bones/8/parent = -1
 bones/8/rest = Transform( -0.205813, 0.829481, -0.00757973, -0.00618395, 0.00546262, 0.999955, 0.97833, 0.174534, 0.00472603, 0.00200765, 0.314523, -0.00109582 )
@@ -1122,6 +1191,14 @@ enabled = true
 cast_to = Vector3( 0, 0, -2 )
 script = ExtResource( 3 )
 
+[node name="SoundAni" type="AnimationPlayer" parent="Interact_ray"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 37 )
+anims/Sound = SubResource( 38 )
+
+[node name="SFXinteract" type="AudioStreamPlayer" parent="Interact_ray"]
+stream = ExtResource( 16 )
+
 [node name="Prompt" type="Label" parent="Interact_ray"]
 anchor_top = 0.5
 anchor_right = 1.0
@@ -1181,14 +1258,14 @@ process_material = SubResource( 34 )
 draw_pass_1 = SubResource( 36 )
 
 [node name="ConcentratedLight" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567286 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.90712 )
 local_coords = false
 process_material = SubResource( 34 )
 draw_pass_1 = SubResource( 36 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 

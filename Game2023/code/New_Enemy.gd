@@ -6,6 +6,7 @@ onready var target_location : Node = $"../Player"
 onready var agent : NavigationAgent = $NavigationAgent
 onready var aggro = $Aggro
 onready var power = max_power setget _set_power
+onready var particle = $Particles
 
 export var patrol_point = []
 export var max_power = 150
@@ -33,6 +34,7 @@ func pick_state(state_list):
 func _ready():
 	state = pick_state([PATROL])
 	power = start_pwr
+	particle.emitting = true
 
 func _physics_process(delta):
 	match state:
@@ -46,6 +48,8 @@ func _physics_process(delta):
 			var dir = (next - transform.origin).normalized()
 			dir.y = 0
 			look_at(transform.origin + dir, Vector3.UP)
+			particle.emitting = true
+			$DustParticles.emitting = true
 				
 				
 			if agent.is_target_reached():
@@ -57,6 +61,8 @@ func _physics_process(delta):
 		
 		#Attack state: Chases the player when found
 		ATTACK:
+			particle.emitting = true
+			$DustParticles.emitting = true
 			var player = aggro.player
 			if player != null:
 				var next = agent.get_next_location()
@@ -77,6 +83,8 @@ func _physics_process(delta):
 		
 		#Stun state: immobilization for a few seconds
 		STUN:
+			particle.emitting = false
+			$DustParticles.emitting = false
 			speed = 0
 			min_speed = 0
 
