@@ -119,6 +119,7 @@ radius = 0.0891607
 height = 0.002
 
 [node name="mushroom" type="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Torus" type="MeshInstance" parent="."]
 transform = Transform( 0.0863629, 0.0109543, 1.45759e-06, -0.0109282, 0.086156, 0.00602272, 0.000756413, -0.00597503, 0.0868463, 0.00598293, 0.0038028, 0 )
