@@ -244,13 +244,13 @@ parameters/playback = SubResource( 4 )
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.146821, 0, 0, 0, 2.17961, 0, 0, 0, 0.160183, 0, 2.2157, 0 )
+transform = Transform( 0.146821, 0, 0, 0, 2.17961, 0, 0, 0, 0.160183, 0, 2.3157, 0 )
 shape = SubResource( 11 )
 
 [node name="EnemyKillZone" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="EnemyKillZone"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682019, 0.515513, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682019, 0.615513, 0 )
 shape = SubResource( 12 )
 disabled = true
 

@@ -991,7 +991,7 @@ transform = Transform( 1, 0, 0, 0, 0.000820355, -1, 0, 1, 0.000820355, 0, -0.031
 shape = SubResource( 1 )
 
 [node name="player1" type="Spatial" parent="."]
-transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, -0.967991, 0 )
+transform = Transform( -2.2, 0, -3.32191e-07, 0, 2.2, 0, 3.32191e-07, 0, -2.2, 0, -0.967991, 0 )
 
 [node name="Armature001" type="Spatial" parent="player1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010023, 0, 0 )
@@ -1119,7 +1119,7 @@ bones/23/enabled = true
 bones/23/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000258013, 0.0474726, 0.000504994, 0.998872, -0.00315414, 0.635819, 0.0184412 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment"]
@@ -1127,7 +1127,7 @@ transform = Transform( 0.651616, -0.010471, -0.00175478, 0.010471, 0.651618, 1.0
 mesh = SubResource( 2 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000258013, 0.0474726, 0.000504994, 0.998872, -0.00315414, 0.635819, 0.0184412 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere001" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment2"]
@@ -1135,7 +1135,7 @@ transform = Transform( 0.0111329, -0.000257975, -2.99804e-05, 0.000178897, 0.016
 mesh = SubResource( 3 )
 
 [node name="BoneAttachment3" type="BoneAttachment" parent="player1/Armature001/Skeleton"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000258013, 0.0474726, 0.000504994, 0.998872, -0.00315414, 0.635819, 0.0184412 )
+transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
 bone_name = "Bone.012"
 
 [node name="Sphere002" type="MeshInstance" parent="player1/Armature001/Skeleton/BoneAttachment3"]

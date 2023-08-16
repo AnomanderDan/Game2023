@@ -56,16 +56,22 @@ environment = SubResource( 4 )
 navmesh = SubResource( 5 )
 
 [node name="basic_building" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 1, -27 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1, -27 )
 
 [node name="basic_building2" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 1, -27 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1, -27 )
+
+[node name="basic_building6" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 1, -27 )
 
 [node name="basic_building3" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19, 0, -5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0, -5 )
+
+[node name="basic_building5" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 0, -5 )
 
 [node name="basic_building4" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -5 )
 
 [node name="Floor" type="MeshInstance" parent="NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -1 )
@@ -76,6 +82,17 @@ material/0 = ExtResource( 6 )
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/Floor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/Floor/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Floor2" type="MeshInstance" parent="NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -0.5, -1 )
+mesh = SubResource( 9 )
+skeleton = NodePath("")
+material/0 = ExtResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/Floor2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/Floor2/StaticBody"]
 shape = SubResource( 10 )
 
 [node name="slope" type="MeshInstance" parent="NavigationMeshInstance"]
@@ -98,6 +115,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.1, -16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.1, -11 )
 
 [node name="brick_wall2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 7.5, 0, 29.5 )
+
+[node name="brick_wall4" parent="." instance=ExtResource( 3 )]
+transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 19.9, 0, 29.5 )
+
+[node name="brick_wall5" parent="." instance=ExtResource( 3 )]
+transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 32.3, 0, 29.5 )
+
+[node name="brick_wall3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4, 0, 28.5 )
 
 [node name="brick_wall" parent="." instance=ExtResource( 3 )]
@@ -128,25 +154,10 @@ shape = SubResource( 13 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.864, 1, 0.531 )
 
-[node name="Skeleton" parent="Player/player1/Armature001" index="0"]
-bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
-
-[node name="BoneAttachment" parent="Player/player1/Armature001/Skeleton" index="0"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
-
-[node name="BoneAttachment2" parent="Player/player1/Armature001/Skeleton" index="1"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
-
-[node name="BoneAttachment3" parent="Player/player1/Armature001/Skeleton" index="2"]
-transform = Transform( 0.998743, 0.0160592, -0.0474746, -0.0160651, 0.999871, 0.000257991, 0.0474726, 0.000505016, 0.998872, -0.00315414, 0.635819, 0.0184412 )
-
 [node name="Prompt" parent="Player/Interact_ray" index="2"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SpotLight" parent="Player" index="6"]
-transform = Transform( 1, 0, 0, 0, 0.995307, 0.0967665, 0, -0.0967665, 0.995307, 0, 0, 0.703795 )
 
 [node name="AnimationTree" parent="Player" index="11"]
 parameters/playback = SubResource( 6 )
