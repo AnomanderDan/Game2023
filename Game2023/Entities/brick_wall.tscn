@@ -642,6 +642,8 @@ material/0 = SubResource( 34 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -4.8 )
 shape = SubResource( 36 )
