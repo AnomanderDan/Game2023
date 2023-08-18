@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/slim_building.blend.dae-944442a789bfd10493cd8323f42856ea.scn"
+path="res://.import/squashed_can.dae-1cb18fabcd18aa16fafdc69a29c5c8a1.scn"
 
 [deps]
 
-source_file="res://slim_building.blend.dae"
-dest_files=[ "res://.import/slim_building.blend.dae-944442a789bfd10493cd8323f42856ea.scn" ]
+source_file="res://squashed_can.dae"
+dest_files=[ "res://.import/squashed_can.dae-1cb18fabcd18aa16fafdc69a29c5c8a1.scn" ]
 
 [params]
 
