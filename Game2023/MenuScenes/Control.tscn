@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MenuScenes/Control.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.294118, 0.392157, 0.462745, 1 )
+
+[node name="BACK" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -66.0
+margin_right = 41.0
+margin_bottom = -32.0
+text = "BACK"
+
+[node name="CONTROLS" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -35.0
+margin_top = 23.0
+margin_right = 34.0
+margin_bottom = 39.0
+text = "CONTROLS"
+
+[node name="MOVEMENT" type="Label" parent="."]
+margin_left = 438.0
+margin_top = 93.0
+margin_right = 592.0
+margin_bottom = 107.0
+text = "WASD FOR MOEVEMENT"
+
+[node name="LEFTCLICK" type="Label" parent="."]
+margin_left = 357.0
+margin_top = 139.0
+margin_right = 680.0
+margin_bottom = 153.0
+text = "LEFT CLICK ON MOUSE FOR CONCENTRATED LIGHT"
+
+[node name="SPECIFY" type="Label" parent="."]
+margin_left = 370.0
+margin_top = 153.0
+margin_right = 667.0
+margin_bottom = 167.0
+text = "(can stun enemies and power up some places)"
+
+[node name="RIGHTCLICK" type="Label" parent="."]
+margin_left = 301.0
+margin_top = 201.0
+margin_right = 738.0
+margin_bottom = 215.0
+text = "PRESS RIGHT CLICK ON MOUSE TO INTERACT WITH CERTAIN OBJECTS"
+
+[node name="CAMERA" type="Label" parent="."]
+margin_left = 380.0
+margin_top = 245.0
+margin_right = 645.0
+margin_bottom = 259.0
+text = "CAMERA CAN BE TURNED USING Q AND E"
+
+[node name="ENJOYDEMO" type="Label" parent="."]
+margin_left = 367.0
+margin_top = 289.0
+margin_right = 662.0
+margin_bottom = 303.0
+text = "ENJOY THE DEMO AND PLEASE GIVE FEEDBACK"
+
+[node name="ENJOYDEMO2" type="Label" parent="."]
+margin_left = 326.0
+margin_top = 326.0
+margin_right = 724.0
+margin_bottom = 374.0
+text = "Most assets were made by us, however, we have used Kenney
+for some of our particle effects and SFX so we'd like to thank 
+and credit them here:"
+align = 1
+
+[node name="ENJOYDEMO3" type="Label" parent="."]
+margin_left = 328.0
+margin_top = 377.0
+margin_right = 726.0
+margin_bottom = 398.0
+text = "https://www.kenney.nl/"
+align = 1
+
+[connection signal="pressed" from="BACK" to="." method="_on_BACK_pressed"]

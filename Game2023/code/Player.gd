@@ -26,7 +26,7 @@ signal Power_changed(power)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	camera_rig.set_as_toplevel(true)
 	animate = $AnimationTree.get("parameters/playback")
 	baseparticles.emitting = true

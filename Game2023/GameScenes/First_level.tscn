@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://squashed_can.tscn" type="PackedScene" id=15]
 [ext_resource path="res://wall_lamp.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=17]
+[ext_resource path="res://BackingTrack.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Environment" id=4]
 background_mode = 1
@@ -310,9 +311,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpotLight" parent="Player" index="6"]
-transform = Transform( 1, 0, 0, 0, 0.995307, 0.0967665, 0, -0.0967665, 0.995307, 0, 0, 0.703795 )
-
 [node name="AnimationTree" parent="Player" index="11"]
 parameters/playback = SubResource( 6 )
 
@@ -366,6 +364,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.81, 
 
 [node name="Button2" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.81, 3.19, -4.1 )
+
+[node name="BackingTrack" parent="." instance=ExtResource( 18 )]
 
 [editable path="Player"]
 [editable path="Player/UI"]

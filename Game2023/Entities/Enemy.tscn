@@ -5,7 +5,7 @@
 [ext_resource path="res://Entities/Aggro.gd" type="Script" id=3]
 [ext_resource path="res://addons/kenney_particle_pack/light_01.png" type="Texture" id=4]
 [ext_resource path="res://addons/kenney_particle_pack/smoke_07.png" type="Texture" id=5]
-[ext_resource path="res://NewEnemySound.wav" type="AudioStream" id=6]
+[ext_resource path="res://EnemySound.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.5
@@ -67,6 +67,7 @@ material = SubResource( 30 )
 
 [node name="Enemy" type="KinematicBody" groups=["enemy"]]
 script = ExtResource( 1 )
+max_power = 250
 time_taken = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -125,6 +126,7 @@ draw_pass_1 = SubResource( 36 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 5.0
 
 [connection signal="body_entered" from="Aggro" to="Aggro" method="_on_Aggro_body_entered"]
 [connection signal="body_exited" from="Aggro" to="Aggro" method="_on_Aggro_body_exited"]
