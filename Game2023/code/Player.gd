@@ -25,6 +25,8 @@ signal Power_changed(power)
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	camera_rig.set_as_toplevel(true)
 	animate = $AnimationTree.get("parameters/playback")
 	baseparticles.emitting = true
@@ -68,9 +70,10 @@ func look_at_cursor():
 	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
 	var cursor_pos = dropPlane.intersects_ray(from, to)
 	
-	cursor.global_transform.origin = cursor_pos + Vector3(0, 1, 0)
+	if cursor_pos:
+		cursor.global_transform.origin = cursor_pos + Vector3(0, 1, 0)
 	
-	look_at(cursor_pos, Vector3.UP)
+		look_at(cursor_pos, Vector3.UP)
 
 
 #Movement

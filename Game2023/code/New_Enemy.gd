@@ -7,6 +7,7 @@ onready var agent : NavigationAgent = $NavigationAgent
 onready var aggro = $Aggro
 onready var power = max_power setget _set_power
 onready var particle = $Particles
+onready var music : AudioStreamPlayer = $Music
 
 export var patrol_point = []
 export var max_power = 150
@@ -41,6 +42,7 @@ func _physics_process(delta):
 		#Patrol state: moves towards a set of points
 		PATROL:
 			find_player()
+			$Music.stop()
 			agent.set_target_location(patrol_point[current_point])
 			var next = agent.get_next_location()
 			var velocity = (next - transform.origin).normalized() * min_speed * delta
@@ -61,6 +63,8 @@ func _physics_process(delta):
 		
 		#Attack state: Chases the player when found
 		ATTACK:
+			if music.playing == false:
+				music.play()
 			particle.emitting = true
 			$DustParticles.emitting = true
 			var player = aggro.player
@@ -87,6 +91,7 @@ func _physics_process(delta):
 			$DustParticles.emitting = false
 			speed = 0
 			min_speed = 0
+			$Music.stop()
 
 		
 		#Die state: enemy termination
