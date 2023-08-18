@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://squashed_can.tscn" type="PackedScene" id=15]
 [ext_resource path="res://wall_lamp.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Entities/Button.tscn" type="PackedScene" id=17]
+[ext_resource path="res://corner_building.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Environment" id=4]
 background_mode = 1
@@ -78,7 +79,16 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.3, 0
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.5, 0, -5 )
 
 [node name="basic_building7" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 47, 0, 72.9 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41.9, 0, 72.9 )
+
+[node name="basic_building8" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.98, 0, 80.9 )
+
+[node name="basic_building9" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -14.17, 0, 76.23 )
+
+[node name="basic_building10" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -14.17, 0, 56.44 )
 
 [node name="basic_building4" parent="NavigationMeshInstance" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -5 )
@@ -92,6 +102,17 @@ material/0 = ExtResource( 6 )
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/Floor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/Floor/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Floor6" type="MeshInstance" parent="NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -0.5, -1 )
+mesh = SubResource( 9 )
+skeleton = NodePath("")
+material/0 = ExtResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/Floor6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/Floor6/StaticBody"]
 shape = SubResource( 10 )
 
 [node name="Floor2" type="MeshInstance" parent="NavigationMeshInstance"]
@@ -117,7 +138,7 @@ material/0 = ExtResource( 6 )
 shape = SubResource( 10 )
 
 [node name="Floor3" type="MeshInstance" parent="NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -0.5, 59 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.55, -0.5, 59 )
 mesh = SubResource( 9 )
 skeleton = NodePath("")
 material/0 = ExtResource( 6 )
@@ -128,7 +149,7 @@ material/0 = ExtResource( 6 )
 shape = SubResource( 10 )
 
 [node name="Floor4" type="MeshInstance" parent="NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.5, 59 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.5, 59 )
 mesh = SubResource( 9 )
 skeleton = NodePath("")
 material/0 = ExtResource( 6 )
@@ -211,19 +232,22 @@ transform = Transform( 1.2, 0, 3.19744e-14, 0, 1.2, 0, -3.19744e-14, 0, 1.2, 37.
 transform = Transform( 1.2, 0, 3.19744e-14, 0, 1.2, 0, -3.19744e-14, 0, 1.2, 37.3, 0, 30.7 )
 
 [node name="brick_wall9" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1.2, 0, 3.19744e-14, 0, 1.2, 0, -3.19744e-14, 0, 1.2, 65.3, 0, 62.7 )
+transform = Transform( 1.2, 0, 3.19744e-14, 0, 1.2, 0, -3.19744e-14, 0, 1.2, 60.2, 0, 62.7 )
 
 [node name="brick_wall10" parent="." instance=ExtResource( 3 )]
-transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 53.8, 0, 50.3 )
+transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 48.7, 0, 50.3 )
 
 [node name="brick_wall12" parent="." instance=ExtResource( 3 )]
-transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 35.8, 0, 84.3 )
+transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 31.81, 0, 84.3 )
 
 [node name="brick_wall11" parent="." instance=ExtResource( 3 )]
-transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 53.8, 0, 63.7 )
+transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 48.7, 0, 63.7 )
 
 [node name="brick_wall3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4, 0, 28.5 )
+
+[node name="brick_wall14" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -18.7, 0, 67.03 )
 
 [node name="brick_wall" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4, 0, 11 )
@@ -266,31 +290,37 @@ transform = Transform( -0.336465, 0, 1.2557, 0, 1.3, 0, -1.2557, 0, -0.336465, 1
 transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 14, 1, 5 )
 
 [node name="rubbish_bag" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.3, 0.5, 52.7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2, 0.5, 52.7 )
 
 [node name="rubbish_bag2" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 63.2, 0.5, 54.4 )
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 58.1, 0.5, 54.4 )
 
 [node name="rubbish_bag3" parent="." instance=ExtResource( 11 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 61.6, 0.5, 53.5 )
 
 [node name="slim_building" parent="." instance=ExtResource( 12 )]
-transform = Transform( -1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 49, 0, 47 )
+transform = Transform( -1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 43.9, 0, 47 )
 
 [node name="brick_wall13" parent="." instance=ExtResource( 3 )]
-transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 23.4, 0, 84.3 )
+transform = Transform( -5.24536e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24536e-08, 19.41, 0, 84.3 )
 
 [node name="slim_building6" parent="." instance=ExtResource( 12 )]
-transform = Transform( -6.55669e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55669e-08, 18.2, 0, 82 )
+transform = Transform( -6.55669e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55669e-08, 14.21, 0, 82 )
+
+[node name="slim_building7" parent="." instance=ExtResource( 12 )]
+transform = Transform( -6.55669e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55669e-08, -8.35, 0, 82 )
 
 [node name="slim_building2" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1.5, 0, 2.62268e-07, 0, 1.5, 0, -2.62268e-07, 0, 1.5, 42.8, 0, 3.9 )
+
+[node name="slim_building5" parent="." instance=ExtResource( 12 )]
+transform = Transform( 2.5332e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 2.5332e-07, 63, 0, -25.4 )
 
 [node name="slim_building3" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1.5, 0, 2.62268e-07, 0, 1.5, 0, -2.62268e-07, 0, 1.5, 42.8, 0, 26.5 )
 
 [node name="slim_building4" parent="." instance=ExtResource( 12 )]
-transform = Transform( -1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 49, 0, 67 )
+transform = Transform( -1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 43.9, 0, 67 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.4, 16 )
@@ -299,34 +329,17 @@ patrol_point = [ Vector3( 30, 2.2, 18 ), Vector3( 20, 2.2, 14 ), Vector3( 5, 2.2
 [node name="hotel" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 43.1, 0, 15.5 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.864, 1, 0.531 )
-
-[node name="Skeleton" parent="Player/player1/Armature001" index="0"]
-bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
-
-[node name="Prompt" parent="Player/Interact_ray" index="2"]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpotLight" parent="Player" index="6"]
-transform = Transform( 1, 0, 0, 0, 0.995307, 0.0967665, 0, -0.0967665, 0.995307, 0, 0, 0.703795 )
-
-[node name="AnimationTree" parent="Player" index="11"]
-parameters/playback = SubResource( 6 )
-
 [node name="broken_glass" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 61.8, 0, 54.6 )
 
 [node name="broken_glass2" parent="." instance=ExtResource( 14 )]
-transform = Transform( -0.75, 0, -1.29904, 0, 1.5, 0, 1.29904, 0, -0.75, 60.9, 0, 51.7 )
+transform = Transform( -0.75, 0, -1.29904, 0, 1.5, 0, 1.29904, 0, -0.75, 55.8, 0, 51.7 )
 
 [node name="squashed_can" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 0, 55 )
 
 [node name="wall_lamp" parent="." instance=ExtResource( 16 )]
-transform = Transform( -2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 63, 3, 62.3 )
+transform = Transform( -2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 57.9, 3, 62.3 )
 
 [node name="wall_lamp2" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 38.7, 2.9, -3 )
@@ -347,25 +360,69 @@ transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 4
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 43, 0, -3 )
 
 [node name="broken_glass4" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 27, 0, 82 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 28.11, 0, 82 )
 
 [node name="broken_glass5" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, 25, 0, 80 )
+transform = Transform( 1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, 26.11, 0, 80 )
 
 [node name="rubbish_bag7" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 29, 0, 82 )
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 25.01, 0, 82 )
 
 [node name="rubbish_bag8" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 25, 0, 82 )
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 21.01, 0, 82 )
 
 [node name="rubbish_bag9" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 31, 0, 83 )
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 27.01, 0, 83 )
 
 [node name="Button" parent="." instance=ExtResource( 17 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.81, 2.1, 62 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 59.71, 2.1, 62 )
 
 [node name="Button2" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.81, 3.19, -4.1 )
+
+[node name="wall_lamp3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -17.31, 3.07, 62.48 )
+
+[node name="Button3" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.19, 3.1, 61.3 )
+
+[node name="broken_glass6" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.09, 0, 62.9 )
+
+[node name="broken_glass7" parent="." instance=ExtResource( 14 )]
+transform = Transform( 0.633927, 0, -1.35946, 0, 1.5, 0, 1.35946, 0, 0.633927, -16.89, 0, 60.9 )
+
+[node name="rubbish_bag10" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -16.99, 0, 63.9 )
+
+[node name="rubbish_bag11" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -17.3562, 0, 62.3 )
+
+[node name="squashed_can3" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.29, 0, 63.8 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.964, 1, 20.431 )
+
+[node name="Skeleton" parent="Player/player1/Armature001" index="0"]
+bones/7/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2"), NodePath("BoneAttachment3") ]
+
+[node name="Prompt" parent="Player/Interact_ray" index="2"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpotLight" parent="Player" index="6"]
+transform = Transform( 1, 0, 0, 0, 0.995307, 0.0967665, 0, -0.0967665, 0.995307, 0, 0, 0.703795 )
+
+[node name="AnimationTree" parent="Player" index="11"]
+parameters/playback = SubResource( 6 )
+
+[node name="corner_building" parent="." instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.4, 0, 28 )
+
+[node name="corner_building2" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.3, 0, 0.1 )
 
 [editable path="Player"]
 [editable path="Player/UI"]

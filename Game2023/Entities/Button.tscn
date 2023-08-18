@@ -22,24 +22,16 @@ extents = Vector3( 0.2, 0.175, 0.5 )
 [node name="Button" type="StaticBody"]
 script = ExtResource( 1 )
 
-[node name="StaticBody3" type="StaticBody" parent="."]
-transform = Transform( 0.355009, 0.0016576, 0, -0.0052425, 0.112257, 0, 0, 0, 0.333328, 0.0857379, 0.795227, 0 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
-transform = Transform( -6.85453e-07, 0.179189, 0, -1.74646, 5.66244e-07, 0, 0, 0, 0.631725, -0.0513786, -0.00797701, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( -0.00289518, 0.0636137, 0, -0.196052, -0.000939335, 0, 0, 0, 0.210572, 0.0674848, 0.794601, 0 )
 mesh = SubResource( 2 )
-skeleton = NodePath("../..")
 material/0 = SubResource( 6 )
 
-[node name="StaticBody5" type="StaticBody" parent="."]
-transform = Transform( -0.0052425, 0.112257, 0, -0.355009, -0.0016576, 0, 0, 0, 0.333328, 0.0857379, 0.795227, 0 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody5"]
-transform = Transform( 0.376855, 0.0324859, 0, 0.061329, 0.377058, 0, 0, 0, 0.404826, -0.00608754, 0.392267, 0 )
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.00490895, 0.0421571, 0, -0.133889, -0.0121578, 0, 0, 0, 0.13494, 0.129805, 0.796738, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
 material/0 = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.408231, 0, 0, 0, 1, 0, 0, 0, 0.340866, 0.1, 0.8, 0 )
+transform = Transform( 0.408231, -9.31323e-10, 0, -1.39698e-09, 1, 0, 0, 0, 0.340866, 0.1, 0.8, 0 )
 shape = SubResource( 5 )
