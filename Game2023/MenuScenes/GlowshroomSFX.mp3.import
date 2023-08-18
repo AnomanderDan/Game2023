@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GlowshroomSFX.mp3-7e081caaa3e12dacd77f6f2304333983.mp3str"
+
+[deps]
+
+source_file="res://MenuScenes/GlowshroomSFX.mp3"
+dest_files=[ "res://.import/GlowshroomSFX.mp3-7e081caaa3e12dacd77f6f2304333983.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

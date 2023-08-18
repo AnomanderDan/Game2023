@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Entities/GlowShroom.gd" type="Script" id=1]
 [ext_resource path="res://Entities/mushroom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/kenney_particle_pack/circle_05.png" type="Texture" id=3]
+[ext_resource path="res://MenuScenes/GlowshroomSFX.mp3" type="AudioStream" id=4]
 
 [sub_resource type="CylinderShape" id=3]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Light_Dim"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("OmniLight:light_energy")
 tracks/0/interp = 1
@@ -32,6 +33,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -87,6 +100,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -208,5 +233,9 @@ visibility_aabb = AABB( -4.27539, -4, -4, 8, 8, 8 )
 process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 16 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
