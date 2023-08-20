@@ -32,53 +32,63 @@ margin_right = 34.0
 margin_bottom = 39.0
 text = "CONTROLS"
 
+[node name="Label" type="Label" parent="."]
+margin_left = 268.0
+margin_top = 315.0
+margin_right = 786.0
+margin_bottom = 363.0
+text = "The player's power supply will deplete over time, 
+so make sure it doesn't run out
+"
+align = 1
+
 [node name="MOVEMENT" type="Label" parent="."]
-margin_left = 438.0
+margin_left = 437.0
 margin_top = 93.0
-margin_right = 592.0
+margin_right = 591.0
 margin_bottom = 107.0
 text = "WASD FOR MOEVEMENT"
 
 [node name="LEFTCLICK" type="Label" parent="."]
-margin_left = 357.0
+margin_left = 354.0
 margin_top = 139.0
-margin_right = 680.0
+margin_right = 677.0
 margin_bottom = 153.0
 text = "LEFT CLICK ON MOUSE FOR CONCENTRATED LIGHT"
 
 [node name="SPECIFY" type="Label" parent="."]
-margin_left = 370.0
+margin_left = 367.0
 margin_top = 153.0
-margin_right = 667.0
+margin_right = 664.0
 margin_bottom = 167.0
 text = "(can stun enemies and power up some places)"
 
 [node name="RIGHTCLICK" type="Label" parent="."]
-margin_left = 301.0
+margin_left = 300.0
 margin_top = 201.0
-margin_right = 738.0
+margin_right = 737.0
 margin_bottom = 215.0
 text = "PRESS RIGHT CLICK ON MOUSE TO INTERACT WITH CERTAIN OBJECTS"
 
 [node name="CAMERA" type="Label" parent="."]
-margin_left = 380.0
+margin_left = 383.0
 margin_top = 245.0
-margin_right = 645.0
+margin_right = 648.0
 margin_bottom = 259.0
 text = "CAMERA CAN BE TURNED USING Q AND E"
 
 [node name="ENJOYDEMO" type="Label" parent="."]
-margin_left = 367.0
+margin_left = 368.0
 margin_top = 289.0
-margin_right = 662.0
+margin_right = 663.0
 margin_bottom = 303.0
 text = "ENJOY THE DEMO AND PLEASE GIVE FEEDBACK"
 
 [node name="ENJOYDEMO2" type="Label" parent="."]
 margin_left = 326.0
-margin_top = 326.0
+margin_top = 377.0
 margin_right = 724.0
-margin_bottom = 374.0
+margin_bottom = 425.0
 text = "Most assets were made by us, however, we have used Kenney
 for some of our particle effects and SFX so we'd like to thank 
 and credit them here:"
@@ -86,9 +96,9 @@ align = 1
 
 [node name="ENJOYDEMO3" type="Label" parent="."]
 margin_left = 328.0
-margin_top = 377.0
+margin_top = 428.0
 margin_right = 726.0
-margin_bottom = 398.0
+margin_bottom = 449.0
 text = "https://www.kenney.nl/"
 align = 1
 
